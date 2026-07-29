@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+  <html lang="nl">
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vanmarlewebdesign | Websites die indruk maken</title>
+  <meta name="description" content="Vanmarlewebdesign bouwt high-end, cinematic websites met 3D-animaties en scroll-ervaringen die vertrouwen wekken en resultaat opleveren.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+  <div class="grain"></div>
+  <div class="loader" id="loader">
+    <div class="loader-logo">VMW</div>
+    <div class="loader-bar"><div class="loader-progress" id="loaderProgress"></div></div>
+  </div>
+
+  <div class="letterbox letterbox-top" id="letterboxTop"></div>
+  <div class="letterbox letterbox-bottom" id="letterboxBottom"></div>
+
+  <header class="header" id="header">
+    <nav class="nav container">
+      <a href="#home" class="logo">Vanmarle<span>webdesign</span></a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#over">Over</a></li>
+        <li><a href="#werk">Werk</a></li>
+        <li><a href="#diensten">Diensten</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <a href="#contact" class="btn btn-small nav-cta">Start een project</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <canvas id="heroCanvas"></canvas>
+      <div class="hero-overlay"></div>
+      <div class="hero-content container">
+        <p class="hero-eyebrow reveal">Webdesign studio</p>
+        <h1 class="hero-title">
+          <span class="reveal-line">Websites die</span>
+          <span class="reveal-line">indruk <em>maken.</em></span>
+        </h1>
+        <p class="hero-sub reveal">Ik ontwerp en bouw high-end, cinematic websites met 3D-animaties en scroll-ervaringen — gemaakt om vertrouwen te wekken en resultaat te leveren.</p>
+        <div class="hero-actions reveal">
+          <a href="#werk" class="btn btn-primary">Bekijk mijn werk</a>
+          <a href="#contact" class="btn btn-outline">Neem contact op</a>
+        </div>
+      </div>
+      <div class="scroll-cue">
+        <span></span>
+        <p>Scroll</p>
+      </div>
+    </section>
+
+    <section class="stats" id="stats-section">
+      <div class="container stats-grid">
+        <div class="stat-item reveal">
+          <span class="stat-number" data-target="30">0</span><span class="stat-suffix">+</span>
+          <p>Projecten opgeleverd</p>
+        </div>
+        <div class="stat-item reveal">
+          <span class="stat-number" data-target="24">0</span><span class="stat-suffix">u</span>
+          <p>Reactietijd</p>
+        </div>
+        <div class="stat-item reveal">
+          <span class="stat-number" data-target="100">0</span><span class="stat-suffix">%</span>
+          <p>Maatwerk, geen templates</p>
+        </div>
+        <div class="stat-item reveal">
+          <span class="stat-number" data-target="5">0</span><span class="stat-suffix">.0</span>
+          <p>Toewijding per project</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="about" id="over">
+    <div class="container about-grid">
+      <div class="about-text reveal">
+        <p class="section-label">Over Vanmarlewebdesign</p>
+          <h2>Niet nog een sjabloon-website.</h2>
+          <p>Ik bouw websites zoals ik ze zelf zou willen ontvangen: snel, scherp ontworpen en met een technische diepgang die je normaal alleen bij grote bureaus tegenkomt. Geen bouwpakketten, geen kant-en-klare thema's — elk project wordt vanaf nul opgebouwd rond het verhaal van het bedrijf erachter.</p>
+          <p>Van 3D-animaties tot scroll-ervaringen die aanvoelen als een korte film: elk detail heeft een doel. Vertrouwen wekken, de bezoeker vasthouden en laten zien waartoe een merk in staat is.</p>
+          <div class="about-points">
+            <div class="point"><span class="point-num">01</span><p>Volledig maatwerk design &amp; development</p></div>
+            <div class="point"><span class="point-num">02</span><p>Persoonlijk contact, geen accountmanagers</p></div>
+          <div class="point"><span class="point-num">03</span><p>Focus op snelheid, techniek en resultaat</p></div>
+        </div>
+      </div>
+        <div class="about-process reveal">
+          <p class="section-label">Werkwijze</p>
+          <ol class="process-list">
+            <li><span>01</span><div><h3>Ontdekken</h3><p>Gesprek over doelen, doelgroep en merk.</p></div></li>
+          <li><span>02</span><div><h3>Ontwerpen</h3><p>Visueel concept met aandacht voor sfeer en beweging.</p></div></li>
+            <li><span>03</span><div><h3>Ontwikkelen</h3><p>Bouw met moderne, snelle en schaalbare code.</p></div></li>
+            <li><span>04</span><div><h3>Lanceren</h3><p>Live zetten, testen en nazorg.</p></div></li>
+        </ol>
+      </div>
+    </div>
+    </section>
+
+    <section class="work" id="werk">
+      <div class="container">
+        <p class="section-label reveal">Portfolio</p>
+        <h2 class="reveal">Een greep uit het werk.</h2>
+        <div class="work-grid">
+          <a class="work-card work-card-featured reveal" href="https://vmstudios053.github.io/klusbedrijf-de-zegen-3d/" target="_blank" rel="noopener">
+            <div class="work-visual work-visual-1"></div>
+            <div class="work-info">
+              <span class="work-tag">Live project · 3D website</span>
+            <h3>Klusbedrijf De Zegen</h3>
+            <p>Een volledig custom 3D-website voor een klusbedrijf, met interactieve Three.js hero, scroll-animaties en live reviews-integratie.</p>
+              <span class="work-link">Bekijk live project →</span>
+          </div>
+        </a>
+        <div class="work-card reveal">
+          <div class="work-visual work-visual-2"></div>
+          <div class="work-info">
+              <span class="work-tag">Concept · E-commerce</span>
+              <h3>Studio Noir</h3>
+              <p>Conceptontwerp voor een minimalistische webshop met cinematic productpresentaties.</p>
+            </div>
+          </div>
+          <div class="work-card reveal">
+            <div class="work-visual work-visual-3"></div>
+            <div class="work-info">
+              <span class="work-tag">Concept · SaaS</span>
+              <h3>Northline Analytics</h3>
+              <p>Interface- en marketingconcept voor een data-dashboard met vloeiende micro-animaties.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="services" id="diensten">
+      <div class="container">
+        <p class="section-label reveal">Diensten</p>
+        <h2 class="reveal">Waar ik in help.</h2>
+        <div class="services-grid">
+          <div class="service-card reveal">
+            <span class="service-num">01</span>
+            <h3>Webdesign op maat</h3>
+          <p>Uniek visueel design afgestemd op merk, doelgroep en doel — geen templates.</p>
+        </div>
+        <div class="service-card reveal">
+            <span class="service-num">02</span>
+            <h3>3D &amp; interactieve websites</h3>
+          <p>Three.js-scenes, interactieve elementen en micro-animaties die een site laten opvallen.</p>
+          </div>
+          <div class="service-card reveal">
+            <span class="service-num">03</span>
+            <h3>Cinematic scroll-ervaringen</h3>
+            <p>Scroll-gestuurde animaties die een website laten aanvoelen als een korte film.</p>
+          </div>
+          <div class="service-card reveal">
+            <span class="service-num">04</span>
+            <h3>Performance &amp; SEO</h3>
+            <p>Snelle, technisch schone code die goed scoort bij Google en bezoekers.</p>
+          </div>
+          <div class="service-card reveal">
+            <span class="service-num">05</span>
+            <h3>Onderhoud &amp; support</h3>
+            <p>Doorlopende ondersteuning, updates en aanpassingen na livegang.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="trust" id="waarom">
+      <div class="container trust-grid">
+        <div class="trust-text reveal">
+          <p class="section-label">Waarom Vanmarlewebdesign</p>
+          <h2>Gebouwd op vertrouwen, niet op beloftes.</h2>
+        <p>Elk project begint met een eerlijk gesprek en eindigt met een website waar je trots op bent. Geen verborgen kosten, geen wachttijden van weken — wel korte lijnen en heldere afspraken.</p>
+        </div>
+        <div class="trust-badges reveal">
+          <div class="badge"><h3>100%</h3><p>Transparante communicatie</p></div>
+          <div class="badge"><h3>&lt;24u</h3><p>Reactietijd op vragen</p></div>
+        <div class="badge"><h3>∞</h3><p>Aandacht voor detail</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta" id="cta">
+      <div class="container cta-inner reveal">
+        <h2>Klaar voor een website die opvalt?</h2>
+        <p>Vertel me over je project en ontdek wat een cinematic website voor jouw merk kan betekenen.</p>
+        <a href="#contact" class="btn btn-primary">Start een project</a>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="container contact-grid">
+        <div class="contact-info reveal">
+          <p class="section-label">Contact</p>
+          <h2>Laten we kennismaken.</h2>
+        <p>Heb je een idee voor een nieuwe website of wil je je huidige site naar een hoger niveau tillen? Stuur een bericht.</p>
+        <div class="contact-detail"><span>E-mail</span><a href="mailto:info@vanmarlewebdesign.nl">info@vanmarlewebdesign.nl</a></div>
+        <div class="contact-detail"><span>Website</span><a href="https://vanmarlewebdesign.nl">vanmarlewebdesign.nl</a></div>
+      </div>
+      <form class="contact-form" id="contactForm">
+          <div class="form-row">
+            <input type="text" name="name" placeholder="Naam" required>
+            <input type="email" name="email" placeholder="E-mailadres" required>
+          </div>
+          <input type="text" name="subject" placeholder="Onderwerp">
+          <textarea name="message" rows="5" placeholder="Vertel me over je project..." required></textarea>
+          <button type="submit" class="btn btn-primary">Versturen</button>
+          <p class="form-note" id="formNote"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <a href="#home" class="logo">Vanmarle<span>webdesign</span></a>
+      <p>&copy; <span id="year"></span> Vanmarlewebdesign. Alle rechten voorbehouden.</p>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
