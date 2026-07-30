@@ -1,211 +1,165 @@
-// ---------- Loader ----------
-const loader = document.getElementById('loader');
-const loaderProgress = document.getElementById('loaderProgress');
-let progress = 0;
-const loaderInterval = setInterval(() => {
-  progress += Math.random() * 18;
-    if (progress >= 100) {
-        progress = 100;
-            clearInterval(loaderInterval);
-                loaderProgress.style.width = progress + '%';
-                    setTimeout(() => {
-                          loader.classList.add('hidden');
-                                document.querySelector('.hero').classList.add('loaded');
-                                    }, 300);
-                                      } else {
-                                          loaderProgress.style.width = progress + '%';
-                                            }
-                                            }, 150);
+// Navbar scroll state + mobile menu
+const navbar = document.querySelector('.navbar');
+const navToggle = document.querySelector('.nav-toggle');
+const mobileMenu = document.querySelector('.mobile-menu');
 
-                                            // ---------- Header scroll state ----------
-                                            const header = document.getElementById('header');
-                                            window.addEventListener('scroll', () => {
-                                              header.classList.toggle('scrolled', window.scrollY > 40);
-                                              });
+window.addEventListener('scroll', () => {
+  if (!navbar) return;
+  if (window.scrollY > 40) navbar.classList.add('scrolled');
+  else navbar.classList.remove('scrolled');
+});
 
-                                              // ---------- Mobile nav ----------
-                                              const navToggle = document.getElementById('navToggle');
-                                              const navLinks = document.getElementById('navLinks');
-                                              navToggle.addEventListener('click', () => {
-                                                navLinks.classList.toggle('open');
-                                                });
-                                                navLinks.querySelectorAll('a').forEach(a => {
-                                                  a.addEventListener('click', () => navLinks.classList.remove('open'));
-                                                  });
+if (navToggle && mobileMenu) {
+  navToggle.addEventListener('click', () => {
+    mobileMenu.classList.toggle('open');
+    navToggle.classList.toggle('active');
+  });
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    mobileMenu.classList.remove('open');
+  }));
+}
 
-                                                  // ---------- Reveal on scroll ----------
-                                                  const revealEls = document.querySelectorAll('.reveal');
-                                                  const revealObserver = new IntersectionObserver((entries) => {
-                                                    entries.forEach(entry => {
-                                                        if (entry.isIntersecting) {
-                                                              entry.target.classList.add('in-view');
-                                                                    revealObserver.unobserve(entry.target);
-                                                                        }
-                                                                          });
-                                                                          }, { threshold: 0.15 });
-                                                                          revealEls.forEach(el => revealObserver.observe(el));
+// Scroll reveal
+const revealEls = document.querySelectorAll('.reveal');
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('is-visible');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.15 });
+revealEls.forEach(el => revealObserver.observe(el));
 
-                                                                          // ---------- Animated counters ----------
-                                                                          const counters = document.querySelectorAll('.stat-number');
-                                                                          const counterObserver = new IntersectionObserver((entries) => {
-                                                                            entries.forEach(entry => {
-                                                                                if (entry.isIntersecting) {
-                                                                                      const el = entry.target;
-                                                                                            const target = parseFloat(el.dataset.target);
-                                                                                                  const isDecimal = el.dataset.target.includes('.');
-                                                                                                        let current = 0;
-                                                                                                              const step = target / 60;
-                                                                                                                    const tick = () => {
-                                                                                                                            current += step;
-                                                                                                                                    if (current >= target) {
-                                                                                                                                              el.textContent = target;
-                                                                                                                                                      } else {
-                                                                                                                                                                el.textContent = Math.floor(current);
-                                                                                                                                                                          requestAnimationFrame(tick);
-                                                                                                                                                                                  }
-                                                                                                                                                                                        };
-                                                                                                                                                                                              tick();
-                                                                                                                                                                                                    counterObserver.unobserve(el);
-                                                                                                                                                                                                        }
-                                                                                                                                                                                                          });
-                                                                                                                                                                                                          }, { threshold: 0.4 });
-                                                                                                                                                                                                          counters.forEach(el => counterObserver.observe(el));
-                                                                                                                                                                                                          
-                                                                                                                                                                                                          // ---------- Cinematic letterbox bars (shrink as you scroll past hero) ----------
-                                                                                                                                                                                                          const letterboxTop = document.getElementById('letterboxTop');
-                                                                                                                                                                                                          const letterboxBottom = document.getElementById('letterboxBottom');
-                                                                                                                                                                                                          const heroEl = document.querySelector('.hero');
-                                                                                                                                                                                                          function updateLetterbox() {
-                                                                                                                                                                                                            const heroHeight = heroEl.offsetHeight;
-                                                                                                                                                                                                              const scrollProgress = Math.min(window.scrollY / (heroHeight * 0.6), 1);
-                                                                                                                                                                                                                const maxBar = 44;
-                                                                                                                                                                                                                  const barHeight = maxBar * (1 - scrollProgress);
-                                                                                                                                                                                                                    letterboxTop.style.height = barHeight + 'px';
-                                                                                                                                                                                                                      letterboxBottom.style.height = barHeight + 'px';
-                                                                                                                                                                                                                      }
-                                                                                                                                                                                                                      window.addEventListener('scroll', updateLetterbox);
-                                                                                                                                                                                                                      updateLetterbox();
-                                                                                                                                                                                                                      
-                                                                                                                                                                                                                      // ---------- Contact form fake submit ----------
-                                                                                                                                                                                                                      const contactForm = document.getElementById('contactForm');
-                                                                                                                                                                                                                      const formNote = document.getElementById('formNote');
-                                                                                                                                                                                                                      contactForm.addEventListener('submit', (e) => {
-                                                                                                                                                                                                                        e.preventDefault();
-                                                                                                                                                                                                                          formNote.textContent = 'Bedankt! Je bericht is verzonden — ik neem snel contact op.';
-                                                                                                                                                                                                                            contactForm.reset();
-                                                                                                                                                                                                                            });
-                                                                                                                                                                                                                            
-                                                                                                                                                                                                                            // ---------- Footer year ----------
-                                                                                                                                                                                                                            document.getElementById('year').textContent = new Date().getFullYear();
-                                                                                                                                                                                                                            
-                                                                                                                                                                                                                            // ---------- Three.js cinematic hero scene ----------
-                                                                                                                                                                                                                            const canvas = document.getElementById('heroCanvas');
-                                                                                                                                                                                                                            const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
-                                                                                                                                                                                                                            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-                                                                                                                                                                                                                            renderer.setSize(window.innerWidth, window.innerHeight);
-                                                                                                                                                                                                                            
-                                                                                                                                                                                                                            const scene = new THREE.Scene();
-                                                                                                                                                                                                                            const camera = new THREE.PerspectiveCamera(55, window.innerWidth / window.innerHeight, 0.1, 100);
-                                                                                                                                                                                                                            camera.position.set(0, 0, 9);
-                                                                                                                                                                                                                            
-                                                                                                                                                                                                                            const centerGroup = new THREE.Group();
-                                                                                                                                                                                                                            scene.add(centerGroup);
-                                                                                                                                                                                                                            
-                                                                                                                                                                                                                            const coreGeo = new THREE.IcosahedronGeometry(2.1, 1);
-                                                                                                                                                                                                                            const coreMat = new THREE.MeshBasicMaterial({ color: 0x6d5efc, wireframe: true, transparent: true, opacity: 0.85 });
-                                                                                                                                                                                                                            const core = new THREE.Mesh(coreGeo, coreMat);
-                                                                                                                                                                                                                            centerGroup.add(core);
-                                                                                                                                                                                                                            
-                                                                                                                                                                                                                            const innerGeo = new THREE.IcosahedronGeometry(1.3, 0);
-                                                                                                                                                                                                                            const innerMat = new THREE.MeshBasicMaterial({ color: 0x22d3ee, wireframe: true, transparent: true, opacity: 0.6 });
-                                                                                                                                                                                                                            const innerMesh = new THREE.Mesh(innerGeo, innerMat);
-                                                                                                                                                                                                                            centerGroup.add(innerMesh);
-                                                                                                                                                                                                                            
-                                                                                                                                                                                                                            // Orbiting satellite shapes representing modular "building blocks" of a website
-                                                                                                                                                                                                                            const satellites = [];
-                                                                                                                                                                                                                            const satGeo = new THREE.BoxGeometry(0.35, 0.35, 0.35);
-                                                                                                                                                                                                                            for (let i = 0; i < 6; i++) {
-                                                                                                                                                                                                                              const mat = new THREE.MeshBasicMaterial({ color: i % 2 === 0 ? 0x6d5efc : 0x22d3ee, wireframe: true });
-                                                                                                                                                                                                                                const mesh = new THREE.Mesh(satGeo, mat);
-                                                                                                                                                                                                                                  const angle = (i / 6) * Math.PI * 2;
-                                                                                                                                                                                                                                    const radius = 3.4;
-                                                                                                                                                                                                                                      mesh.userData.angle = angle;
-                                                                                                                                                                                                                                        mesh.userData.radius = radius;
-                                                                                                                                                                                                                                          mesh.userData.speed = 0.2 + Math.random() * 0.15;
-                                                                                                                                                                                                                                            mesh.position.set(Math.cos(angle) * radius, Math.sin(angle * 1.3) * 1.2, Math.sin(angle) * radius);
-                                                                                                                                                                                                                                              centerGroup.add(mesh);
-                                                                                                                                                                                                                                                satellites.push(mesh);
-                                                                                                                                                                                                                                                }
-                                                                                                                                                                                                                                                
-                                                                                                                                                                                                                                                // Particle field
-                                                                                                                                                                                                                                                const particleCount = 700;
-                                                                                                                                                                                                                                                const particleGeo = new THREE.BufferGeometry();
-                                                                                                                                                                                                                                                const positions = new Float32Array(particleCount * 3);
-                                                                                                                                                                                                                                                for (let i = 0; i < particleCount; i++) {
-                                                                                                                                                                                                                                                  positions[i * 3] = (Math.random() - 0.5) * 30;
-                                                                                                                                                                                                                                                    positions[i * 3 + 1] = (Math.random() - 0.5) * 30;
-                                                                                                                                                                                                                                                      positions[i * 3 + 2] = (Math.random() - 0.5) * 30;
-                                                                                                                                                                                                                                                      }
-                                                                                                                                                                                                                                                      particleGeo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-                                                                                                                                                                                                                                                      const particleMat = new THREE.PointsMaterial({ color: 0x9a9aac, size: 0.03, transparent: true, opacity: 0.5 });
-                                                                                                                                                                                                                                                      const particles = new THREE.Points(particleGeo, particleMat);
-                                                                                                                                                                                                                                                      scene.add(particles);
-                                                                                                                                                                                                                                                      
-                                                                                                                                                                                                                                                      // Mouse parallax
-                                                                                                                                                                                                                                                      let mouseX = 0, mouseY = 0;
-                                                                                                                                                                                                                                                      window.addEventListener('mousemove', (e) => {
-                                                                                                                                                                                                                                                        mouseX = (e.clientX / window.innerWidth - 0.5) * 2;
-                                                                                                                                                                                                                                                          mouseY = (e.clientY / window.innerHeight - 0.5) * 2;
-                                                                                                                                                                                                                                                          });
-                                                                                                                                                                                                                                                          
-                                                                                                                                                                                                                                                          // Scroll-linked cinematic camera movement
-                                                                                                                                                                                                                                                          let scrollFrac = 0;
-                                                                                                                                                                                                                                                          function updateScrollFrac() {
-                                                                                                                                                                                                                                                            const heroHeight = heroEl.offsetHeight;
-                                                                                                                                                                                                                                                              scrollFrac = Math.min(window.scrollY / heroHeight, 1);
-                                                                                                                                                                                                                                                              }
-                                                                                                                                                                                                                                                              window.addEventListener('scroll', updateScrollFrac);
-                                                                                                                                                                                                                                                              updateScrollFrac();
-                                                                                                                                                                                                                                                              
-                                                                                                                                                                                                                                                              function onResize() {
-                                                                                                                                                                                                                                                                camera.aspect = window.innerWidth / window.innerHeight;
-                                                                                                                                                                                                                                                                  camera.updateProjectionMatrix();
-                                                                                                                                                                                                                                                                    renderer.setSize(window.innerWidth, window.innerHeight);
-                                                                                                                                                                                                                                                                    }
-                                                                                                                                                                                                                                                                    window.addEventListener('resize', onResize);
-                                                                                                                                                                                                                                                                    
-                                                                                                                                                                                                                                                                    const clock = new THREE.Clock();
-                                                                                                                                                                                                                                                                    function animate() {
-                                                                                                                                                                                                                                                                      requestAnimationFrame(animate);
-                                                                                                                                                                                                                                                                        const elapsed = clock.getElapsedTime();
-                                                                                                                                                                                                                                                                        
-                                                                                                                                                                                                                                                                          core.rotation.x = elapsed * 0.15;
-                                                                                                                                                                                                                                                                            core.rotation.y = elapsed * 0.22;
-                                                                                                                                                                                                                                                                              innerMesh.rotation.x = -elapsed * 0.25;
-                                                                                                                                                                                                                                                                                innerMesh.rotation.y = -elapsed * 0.18;
-                                                                                                                                                                                                                                                                                
-                                                                                                                                                                                                                                                                                  satellites.forEach((mesh) => {
-                                                                                                                                                                                                                                                                                      const a = mesh.userData.angle + elapsed * mesh.userData.speed;
-                                                                                                                                                                                                                                                                                          const r = mesh.userData.radius;
-                                                                                                                                                                                                                                                                                              mesh.position.x = Math.cos(a) * r;
-                                                                                                                                                                                                                                                                                                  mesh.position.z = Math.sin(a) * r;
-                                                                                                                                                                                                                                                                                                      mesh.rotation.x += 0.01;
-                                                                                                                                                                                                                                                                                                          mesh.rotation.y += 0.015;
-                                                                                                                                                                                                                                                                                                            });
-                                                                                                                                                                                                                                                                                                            
-                                                                                                                                                                                                                                                                                                              particles.rotation.y = elapsed * 0.02;
-                                                                                                                                                                                                                                                                                                              
-                                                                                                                                                                                                                                                                                                                // Cinematic dolly: zoom in and rotate slightly as user scrolls through the hero
-                                                                                                                                                                                                                                                                                                                  camera.position.z = 9 - scrollFrac * 3.5;
-                                                                                                                                                                                                                                                                                                                    centerGroup.rotation.y = scrollFrac * 0.9;
-                                                                                                                                                                                                                                                                                                                      centerGroup.position.y = scrollFrac * -1.2;
-                                                                                                                                                                                                                                                                                                                      
-                                                                                                                                                                                                                                                                                                                        // Mouse parallax offset
-                                                                                                                                                                                                                                                                                                                          camera.position.x += (mouseX * 0.6 - camera.position.x) * 0.03;
-                                                                                                                                                                                                                                                                                                                            camera.position.y += (-mouseY * 0.4 - camera.position.y) * 0.03;
-                                                                                                                                                                                                                                                                                                                              camera.lookAt(0, 0, 0);
-                                                                                                                                                                                                                                                                                                                              
-                                                                                                                                                                                                                                                                                                                                renderer.render(scene, camera);
-                                                                                                                                                                                                                                                                                                                                }
-                                                                                                                                                                                                                                                                                                                                animate();
-                                                                                                                                                                                                                                                                                                                                
+// Stat counters
+const counters = document.querySelectorAll('.stat-num[data-count]');
+const counterObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+    const el = entry.target;
+    const target = parseFloat(el.dataset.count);
+    const suffix = el.dataset.suffix || '';
+    const duration = 1600;
+    const start = performance.now();
+    function tick(now) {
+      const p = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - p, 3);
+      const val = target < 10 ? (target * eased).toFixed(1) : Math.floor(target * eased);
+      el.textContent = val + suffix;
+      if (p < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+    counterObserver.unobserve(el);
+  });
+}, { threshold: 0.5 });
+counters.forEach(el => counterObserver.observe(el));
+
+// Contact form -> mailto fallback (no backend)
+const contactForm = document.getElementById('contact-form');
+if (contactForm) {
+  contactForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const name = contactForm.querySelector('#name').value;
+    const email = contactForm.querySelector('#email').value;
+    const phone = contactForm.querySelector('#phone') ? contactForm.querySelector('#phone').value : '';
+    const message = contactForm.querySelector('#message').value;
+    const subject = encodeURIComponent('Nieuwe aanvraag via website - ' + name);
+    const body = encodeURIComponent('Naam: ' + name + '\nE-mail: ' + email + '\nTelefoon: ' + phone + '\n\nBericht:\n' + message);
+    window.location.href = 'mailto:info@vanmarlewebdesign.nl?subject=' + subject + '&body=' + body;
+  });
+}
+
+// Cinematic 3D hero (brand ring: gold + blue)
+(function initHero() {
+  const canvas = document.getElementById('hero-canvas');
+  if (!canvas || typeof THREE === 'undefined') return;
+
+ const scene = new THREE.Scene();
+  scene.fog = new THREE.FogExp2(0x06070a, 0.06);
+
+ const camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 100);
+  camera.position.set(0, 0, 9);
+
+ const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+ const goldLight = new THREE.PointLight(0xd4af37, 6, 30);
+  goldLight.position.set(-4, 3, 4);
+  scene.add(goldLight);
+
+ const blueLight = new THREE.PointLight(0x2e5cff, 6, 30);
+  blueLight.position.set(4, -2, 3);
+  scene.add(blueLight);
+
+ scene.add(new THREE.AmbientLight(0xffffff, 0.15));
+
+ // Brand ring group (echoes the logo)
+ const ringGroup = new THREE.Group();
+  const ringGeo = new THREE.TorusGeometry(2.4, 0.05, 32, 200);
+    const ringMatGold = new THREE.MeshStandardMaterial({ color: 0xd4af37, metalness: 0.9, roughness: 0.25, emissive: 0x2a1d05, emissiveIntensity: 0.3 });
+  const ring = new THREE.Mesh(ringGeo, ringMatGold);
+  ringGroup.add(ring);
+
+ const innerGeo = new THREE.TorusGeometry(2.4, 0.05, 32, 200);
+  const innerMat = new THREE.MeshStandardMaterial({ color: 0x2e5cff, metalness: 0.9, roughness: 0.25, emissive: 0x0a1533, emissiveIntensity: 0.3 });
+  const ring2 = new THREE.Mesh(innerGeo, innerMat);
+  ring2.rotation.x = Math.PI / 3;
+  ring2.rotation.y = Math.PI / 5;
+  ringGroup.add(ring2);
+
+ scene.add(ringGroup);
+
+ // Particle field
+ const particleCount = 260;
+  const positions = new Float32Array(particleCount * 3);
+  for (let i = 0; i < particleCount; i++) {
+    positions[i * 3] = (Math.random() - 0.5) * 26;
+    positions[i * 3 + 1] = (Math.random() - 0.5) * 16;
+    positions[i * 3 + 2] = (Math.random() - 0.5) * 20 - 4;
+  }
+  const particleGeo = new THREE.BufferGeometry();
+  particleGeo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+  const particleMat = new THREE.PointsMaterial({ color: 0xf3d878, size: 0.03, transparent: true, opacity: 0.55 });
+  const particles = new THREE.Points(particleGeo, particleMat);
+  scene.add(particles);
+
+ let mouseX = 0, mouseY = 0;
+  window.addEventListener('mousemove', (e) => {
+    mouseX = (e.clientX / window.innerWidth - 0.5) * 2;
+    mouseY = (e.clientY / window.innerHeight - 0.5) * 2;
+  });
+
+ function getScrollProgress() {
+   const hero = document.querySelector('.hero');
+   if (!hero) return 0;
+   const rect = hero.getBoundingClientRect();
+   const progress = Math.min(Math.max(-rect.top / rect.height, 0), 1);
+   return progress;
+ }
+
+ const clock = new THREE.Clock();
+  function animate() {
+    requestAnimationFrame(animate);
+    const t = clock.getElapsedTime();
+    const scrollP = getScrollProgress();
+
+  ringGroup.rotation.y = t * 0.15 + scrollP * 1.6;
+    ringGroup.rotation.x = Math.sin(t * 0.2) * 0.15;
+    particles.rotation.y = t * 0.02;
+
+  camera.position.z = 9 - scrollP * 4.5;
+    camera.position.x += (mouseX * 0.6 - camera.position.x) * 0.03;
+    camera.position.y += (-mouseY * 0.4 - camera.position.y) * 0.03;
+    camera.lookAt(0, 0, 0);
+
+  renderer.render(scene, camera);
+  }
+  animate();
+
+ window.addEventListener('resize', () => {
+   camera.aspect = window.innerWidth / window.innerHeight;
+   camera.updateProjectionMatrix();
+   renderer.setSize(window.innerWidth, window.innerHeight);
+ });
+})();
