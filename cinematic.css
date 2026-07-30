@@ -470,3 +470,19 @@ h3.display{font-size:clamp(1.35rem,2vw,1.75rem);line-height:1.25}
   .film-frame{max-height:52vh}
   .scene-copy p{display:none}
 }
+
+/* cijfers: de tellers erven de grote serif-stijl */
+.stat b span{font:inherit;letter-spacing:0;text-transform:none;color:inherit}
+
+/* demokaarten zonder foto krijgen een subtiel merkwatermerk */
+.demo-media--a,.demo-media--b,.demo-media--c{position:relative;overflow:hidden}
+.demo-media--a::after,.demo-media--b::after,.demo-media--c::after{
+  content:"";position:absolute;inset:0;
+  background:
+    url('logo.png') center/clamp(70px,9vw,108px) no-repeat,
+    linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px) 0 0/100% 44px,
+    linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px) 0 0/44px 100%;
+  opacity:.5;
+  mix-blend-mode:screen;
+}
+.demo:hover .demo-media--a::after,.demo:hover .demo-media--b::after,.demo:hover .demo-media--c::after{opacity:.7}
