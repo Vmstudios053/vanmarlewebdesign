@@ -116,8 +116,12 @@
     updateActs(stageP);
     updateFilm();
     if (nav) {
-      nav.classList.toggle('is-solid', window.scrollY > 70);
-      nav.classList.toggle('is-branded', stageP > 0.62 || (stage && window.scrollY > stage.offsetHeight * 0.85));
+      if (!stage) {
+        nav.classList.add('is-solid', 'is-branded');
+      } else {
+        nav.classList.toggle('is-solid', window.scrollY > 70);
+        nav.classList.toggle('is-branded', stageP > 0.62 || window.scrollY > stage.offsetHeight * 0.85);
+      }
     }
   }
 
