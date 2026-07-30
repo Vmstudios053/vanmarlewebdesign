@@ -1,226 +1,436 @@
 <!DOCTYPE html>
 <html lang="nl">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Van Marle Webdesign | Professionele Websites met een Wow-factor</title>
-  <meta name="description" content="Van Marle Webdesign bouwt professionele, betrouwbare en cinematic websites voor ondernemers die willen opvallen. Vakmanschap, vriendelijk contact en oog voor detail.">
-  <link rel="canonical" href="https://vanmarlewebdesign.nl/">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Van Marle Webdesign | Cinematische websites, live binnen 2 weken</title>
+  <meta name="description" content="Van Marle Webdesign ontwerpt en bouwt rustige, cinematische websites met 3D en beweging. Persoonlijk, betrouwbaar en met christelijk vakmanschap. Binnen twee weken online.">
+  <meta name="keywords" content="webdesign, website laten maken, 3D website, cinematische website, webdesigner Nederland, SEO, Van Marle Webdesign">
+  <meta name="author" content="Sven van Marle">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="theme-color" content="#04060b">
+  <link rel="canonical" href="https://www.vanmarlewebdesign.nl/">
+
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Van Marle Webdesign | Professionele Websites met een Wow-factor">
-  <meta property="og:description" content="Cinematic, functionele en betrouwbare websites - gebouwd met vakmanschap en persoonlijke aandacht.">
-  <meta property="og:image" content="https://vanmarlewebdesign.nl/logo.png">
-  <meta property="og:url" content="https://vanmarlewebdesign.nl/">
+  <meta property="og:site_name" content="Van Marle Webdesign">
+  <meta property="og:title" content="Van Marle Webdesign | Cinematische websites, live binnen 2 weken">
+  <meta property="og:description" content="Rustige, cinematische websites met 3D en beweging. Persoonlijk gebouwd, eerlijk geprijsd en binnen twee weken online.">
+  <meta property="og:image" content="https://www.vanmarlewebdesign.nl/founder-office.jpg">
+  <meta property="og:url" content="https://www.vanmarlewebdesign.nl/">
   <meta property="og:locale" content="nl_NL">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Van Marle Webdesign | Cinematische websites">
+  <meta name="twitter:description" content="Cinematische websites met 3D en beweging. Binnen twee weken online.">
+  <meta name="twitter:image" content="https://www.vanmarlewebdesign.nl/founder-office.jpg">
+
   <link rel="icon" type="image/png" href="logo.png">
+  <link rel="apple-touch-icon" href="logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="cinematic.css">
+
+  <style>
+    #stage-fallback{position:absolute;inset:0;display:none;place-items:center;pointer-events:none}
+    #stage-fallback.is-shown{display:grid}
+    #stage-fallback img{width:min(300px,54vw);filter:drop-shadow(0 40px 70px rgba(0,0,0,.65))}
+  </style>
+
   <script type="application/ld+json">
   {
-  "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  "name": "Van Marle Webdesign",
-  "image": "https://vanmarlewebdesign.nl/logo.png",
-  "url": "https://vanmarlewebdesign.nl/",
-  "description": "Professionele, betrouwbare en cinematic websites voor ondernemers.",
-  "address": { "@type": "PostalAddress", "addressCountry": "NL" },
-  "areaServed": "NL",
-  "sameAs": []
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Van Marle Webdesign",
+    "alternateName": "Vanmarle Webdesign",
+    "url": "https://www.vanmarlewebdesign.nl/",
+    "logo": "https://www.vanmarlewebdesign.nl/logo.png",
+    "image": "https://www.vanmarlewebdesign.nl/founder-office.jpg",
+    "description": "Webdesignstudio voor cinematische websites met 3D en beweging. Persoonlijk, betrouwbaar en binnen twee weken online.",
+    "email": "info@vanmarlewebdesign.nl",
+    "founder": { "@type": "Person", "name": "Sven van Marle" },
+    "areaServed": { "@type": "Country", "name": "Nederland" },
+    "serviceType": ["Webdesign", "Webdevelopment", "3D websites", "SEO", "Branding"],
+    "knowsLanguage": ["nl", "en"],
+    "priceRange": "Op aanvraag"
   }
   </script>
-  </head>
-<body>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Van Marle Webdesign",
+    "url": "https://www.vanmarlewebdesign.nl/",
+    "inLanguage": "nl-NL"
+  }
+  </script>
+</head>
+<body class="is-loading">
 
-  <nav class="navbar">
-    <a href="index.html" class="nav-logo">
-      <img src="logo.png" alt="Van Marle Webdesign logo">
+  <!-- ============ PRELOADER ============ -->
+  <div id="preloader">
+    <div class="pre">
+      <svg class="pre-mark" viewBox="0 0 100 100" aria-hidden="true">
+        <defs>
+          <linearGradient id="preGrad" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#d9b45a"/>
+            <stop offset="50%" stop-color="#f7f3e8"/>
+            <stop offset="100%" stop-color="#5b8dff"/>
+          </linearGradient>
+        </defs>
+        <circle cx="50" cy="50" r="48"/>
+      </svg>
+      <div class="pre-title">Van Marle</div>
+      <div class="pre-sub">webdesign</div>
+      <div class="pre-bar"><span id="pre-bar-fill"></span></div>
+      <div class="pre-status" id="pre-status">Fundament leggen &middot; 0%</div>
+    </div>
+  </div>
+
+  <!-- ============ NAVIGATIE ============ -->
+  <header class="nav" id="nav">
+    <a class="nav-brand" href="index.html" aria-label="Van Marle Webdesign, naar home">
+      <img src="logo.png" alt="Logo Van Marle Webdesign" width="34" height="34">
       <span>Van Marle<small>Webdesign</small></span>
     </a>
-  <div class="nav-links">
-  <a href="index.html" class="active">Home</a>
-  <a href="diensten.html">Diensten</a>
-  <a href="portfolio.html">Portfolio</a>
-  <a href="over-mij.html">Over mij</a>
-  <a href="contact.html">Contact</a>
-  </div>
-  <a href="contact.html" class="btn btn-primary" style="padding:13px 26px;font-size:0.85rem;">Offerte aanvragen</a>
-  <div class="nav-toggle"><span></span><span></span><span></span></div>
-  </nav>
+    <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-links">Menu</button>
+    <nav class="nav-links" id="nav-links" aria-label="Hoofdmenu">
+      <a href="diensten.html">Diensten</a>
+      <a href="#demos">Demo&rsquo;s</a>
+      <a href="#proces">Proces</a>
+      <a href="over-mij.html">Over mij</a>
+      <a class="btn btn--gold" href="contact.html">Plan een gesprek <i>&rarr;</i></a>
+    </nav>
+  </header>
 
-<div class="mobile-menu">
-<a href="index.html">Home</a>
-<a href="diensten.html">Diensten</a>
-<a href="portfolio.html">Portfolio</a>
-<a href="over-mij.html">Over mij</a>
-<a href="contact.html">Contact</a>
-</div>
+  <main>
 
-<section class="hero">
-<canvas id="hero-canvas"></canvas>
-<div class="letterbox top"></div>
-<div class="letterbox bottom"></div>
-<div class="hero-content">
-<span class="eyebrow">Vakmanschap &middot; Vertrouwen &middot; Cinematic Design</span>
-<h1>Websites die <span class="gradient-text">vertrouwen</span> wekken.</h1>
-<p>Van Marle Webdesign ontwerpt professionele, betrouwbare en visueel adembenemende websites voor ondernemers die willen opvallen &mdash; gebouwd met vakmanschap, eerlijkheid en persoonlijke aandacht.</p>
-<div class="hero-actions">
-<a href="portfolio.html" class="btn btn-primary">Bekijk ons werk</a>
-<a href="contact.html" class="btn btn-outline">Neem contact op</a>
-</div>
-</div>
-<div class="scroll-cue"><span>Scroll</span><div class="line"></div></div>
-</section>
+    <!-- ============ STAGE: 3D MERKTEKEN ============ -->
+    <section id="stage" aria-label="Introductie">
+      <div class="stage-sticky">
+        <canvas id="logo-canvas"></canvas>
+        <div id="stage-fallback"><img src="logo.png" alt="Logo Van Marle Webdesign"></div>
+        <div class="stage-grid" aria-hidden="true"></div>
+        <div class="stage-glow" aria-hidden="true"></div>
+        <div class="stage-vignette" aria-hidden="true"></div>
 
-<section class="stats-bar reveal">
-<div class="container stats-grid">
-<div><div class="stat-num" data-count="40">0</div><div class="stat-label">Projecten opgeleverd</div></div>
-<div><div class="stat-num" data-count="5">0</div><div class="stat-label">Jaar ervaring</div></div>
-<div><div class="stat-num" data-count="98" data-suffix="%">0</div><div class="stat-label">Tevreden klanten</div></div>
-<div><div class="stat-num" data-count="24" data-suffix="u">0</div><div class="stat-label">Reactietijd</div></div>
-</div>
-</section>
+        <div class="acts">
+          <div class="act act--1 is-live">
+            <p class="eyebrow eyebrow--center">Van Marle Webdesign &middot; websites met ziel</p>
+            <h1 class="display">Websites die rust geven<br>en vertrouwen bouwen.</h1>
+            <p class="lead">Cinematische websites met 3D en beweging &mdash; ontworpen en met de hand gebouwd door &eacute;&eacute;n vakman. Rustig in vorm, helder in taal, eerlijk in afspraken.</p>
+          </div>
 
-<section>
-  <div class="container about-grid">
-    <div class="about-media reveal">
-      <img src="founder-office.jpg" alt="Oprichter van Van Marle Webdesign aan het werk achter een laptop met uitzicht op de skyline">
-    </div>
-    <div class="about-text reveal">
-      <span class="eyebrow">Wie wij zijn</span>
-      <h2>Persoonlijk vakmanschap, professioneel resultaat.</h2>
-    <p>Van Marle Webdesign is opgericht vanuit een passie voor mooi &eacute;n functioneel design. Ik geloof dat een website meer moet doen dan er goed uitzien &mdash; het moet vertrouwen wekken, bezoekers overtuigen en uw bedrijf laten groeien.</p>
-    <p>Met eerlijkheid, toewijding en oog voor detail werk ik aan elk project alsof het mijn eigen bedrijf is. Vriendelijk in contact, betrouwbaar in afspraken en professioneel in uitvoering.</p>
-    <div class="signature-line">
-    <img src="founder-portrait.jpg" alt="Portret van de oprichter van Van Marle Webdesign">
-    <div><strong>Van Marle</strong><span>Oprichter, Van Marle Webdesign</span></div>
-    </div>
-    </div>
-  </div>
-</section>
+          <div class="act act--2">
+            <p class="eyebrow eyebrow--center">Geen bouwpakket</p>
+            <h2>Uw merk verdient meer<br>dan een template.</h2>
+            <p class="lead">Elk project begint bij uw verhaal en uw klant. Geen standaardthema, geen overbodige plug-ins: &eacute;&eacute;n ontwerp, precies voor u getekend en regel voor regel gebouwd.</p>
+          </div>
 
-<section class="reveal">
-<div class="container">
-<div class="section-head center">
-<span class="eyebrow">Waar wij voor staan</span>
-<h2>Waarden die het verschil maken</h2>
-<p>Achter elk ontwerp staat een set waarden waar we nooit op inleveren.</p>
-</div>
-<div class="values-grid">
-<div class="value-card"><div class="value-icon">&#9733;</div><h3>Professioneel</h3><p>Strak, doordacht en foutloos opgeleverd &mdash; van eerste schets tot lancering.</p></div>
-<div class="value-card"><div class="value-icon">&#9825;</div><h3>Vriendelijk</h3><p>Laagdrempelig contact en heldere communicatie, zonder vakjargon.</p></div>
-<div class="value-card"><div class="value-icon">&#128274;</div><h3>Betrouwbaar</h3><p>Wat we afspreken, komen we na. Transparant over tijd, proces en prijs.</p></div>
-<div class="value-card"><div class="value-icon">&#10022;</div><h3>Geloof &amp; Integriteit</h3><p>Vanuit een christelijke levensvisie werken we met eerlijkheid en toewijding aan elk project.</p></div>
-<div class="value-card"><div class="value-icon">&#9998;</div><h3>Mooi &amp; Functioneel</h3><p>Verfijnd design dat niet alleen indruk maakt, maar ook echt werkt.</p></div>
-</div>
-</div>
-</section>
+          <div class="act act--3">
+            <p class="eyebrow eyebrow--center">Van kennismaking tot livegang</p>
+            <h2>Vandaag een gesprek.<br>Binnen twee weken online.</h2>
+            <div class="act-actions">
+              <a class="btn btn--gold" href="contact.html">Plan een gesprek <i>&rarr;</i></a>
+              <a class="btn btn--ghost" href="#demos">Bekijk de demo&rsquo;s <i>&darr;</i></a>
+            </div>
+          </div>
+        </div>
 
-<section class="reveal">
-<div class="container">
-<div class="section-head">
-<span class="eyebrow">Diensten</span>
-<h2>Alles wat uw website nodig heeft</h2>
-<p>Van eerste ontwerp tot doorlopende ondersteuning.</p>
-</div>
-<div class="services-grid">
-<div class="service-card">
-<div class="service-num">01</div>
-<h3>Cinematic Websites</h3>
-<p>Websites met 3D-scroll animaties en filmische effecten die direct indruk maken.</p>
-<a href="diensten.html" class="service-link">Meer info &rarr;</a>
-</div>
-<div class="service-card">
-<div class="service-num">02</div>
-<h3>SEO &amp; Vindbaarheid</h3>
-<p>Technisch en inhoudelijk geoptimaliseerd zodat uw klanten u vinden op Google.</p>
-<a href="diensten.html" class="service-link">Meer info &rarr;</a>
-</div>
-<div class="service-card">
-<div class="service-num">03</div>
-<h3>Onderhoud &amp; Support</h3>
-<p>Doorlopende begeleiding, updates en een vast aanspreekpunt na oplevering.</p>
-<a href="diensten.html" class="service-link">Meer info &rarr;</a>
-</div>
-</div>
-</div>
-</section>
+        <div class="scroll-hint" aria-hidden="true">
+          <span>Scroll</span>
+          <i></i>
+        </div>
 
-<section class="reveal">
-<div class="container">
-<div class="section-head">
-<span class="eyebrow">Portfolio</span>
-<h2>Uitgelicht werk</h2>
-<p>Een greep uit recent opgeleverde en conceptuele projecten.</p>
-</div>
-<div class="portfolio-grid">
-<a href="https://vmstudios053.github.io/klusbedrijf-de-zegen-3d/" target="_blank" rel="noopener" class="portfolio-card">
-<div class="portfolio-media"><span class="portfolio-tag">Live project</span><img src="portfolio-klusbedrijf.jpg" alt="3D website voor Klusbedrijf De Zegen"></div>
-<div class="portfolio-body"><h3>Klusbedrijf De Zegen</h3><p>Cinematic 3D-website voor een klusbedrijf in Twente.</p><span class="portfolio-cta">Bekijk project &rarr;</span></div>
-</a>
-<a href="portfolio.html" class="portfolio-card concept-card">
-<div class="portfolio-media"><span class="portfolio-tag">Concept</span><span>Studio Noir</span></div>
-<div class="portfolio-body"><h3>Studio Noir</h3><p>Conceptontwerp voor een creatief fotografiestudio.</p><span class="portfolio-cta">Bekijk portfolio &rarr;</span></div>
-</a>
-</div>
-</div>
-</section>
-
-<section class="reveal">
-<div class="container testimonial">
-<blockquote>&ldquo;Van Marle Webdesign leverde precies wat we nodig hadden: een website die er professioneel uitziet &eacute;n gewoon werkt.&rdquo;</blockquote>
-<cite>&mdash; Klusbedrijf De Zegen</cite>
-</div>
-</section>
-
-<section class="reveal">
-<div class="container">
-<div class="cta-band">
-<h2>Klaar voor een website met <span class="gradient-text">wow-factor</span>?</h2>
-<p>Plan een vrijblijvend kennismakingsgesprek en ontdek wat we voor u kunnen betekenen.</p>
-<div class="hero-actions"><a href="contact.html" class="btn btn-primary">Start uw project</a></div>
-</div>
-</div>
-</section>
-
-<footer>
-  <div class="container">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <a href="index.html" class="nav-logo"><img src="logo.png" alt="Van Marle Webdesign logo"><span>Van Marle<small>Webdesign</small></span></a>
-      <p>Professionele, betrouwbare en cinematic websites &mdash; gebouwd met vakmanschap en een christelijke werkethiek van eerlijkheid en toewijding.</p>
+        <div class="stage-meta" aria-hidden="true">
+          <span>Van Marle Webdesign &middot; Nederland</span>
+          <span>3D &middot; Beweging &middot; Vindbaarheid</span>
+        </div>
       </div>
-    <div class="footer-col">
-    <h4>Navigatie</h4>
-    <a href="index.html">Home</a>
-    <a href="diensten.html">Diensten</a>
-    <a href="portfolio.html">Portfolio</a>
-    <a href="over-mij.html">Over mij</a>
-    <a href="contact.html">Contact</a>
-    </div>
-    <div class="footer-col">
-    <h4>Diensten</h4>
-    <a href="diensten.html">Cinematic Websites</a>
-    <a href="diensten.html">SEO &amp; Vindbaarheid</a>
-    <a href="diensten.html">Onderhoud &amp; Support</a>
-    </div>
-    <div class="footer-col">
-    <h4>Contact</h4>
-    <span>info@vanmarlewebdesign.nl</span>
-    <span>Nederland</span>
-    <a href="contact.html">Stuur een bericht &rarr;</a>
-    </div>
-    </div>
-  <div class="footer-bottom">
-  <span>&copy; 2026 Van Marle Webdesign. Alle rechten voorbehouden.</span>
-  <span>Gebouwd met toewijding &amp; vakmanschap.</span>
-  </div>
-  </div>
-</footer>
+    </section>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-<script src="script.js"></script>
+    <!-- ============ DE FILM ============ -->
+    <section id="film" aria-label="De film: wat u krijgt">
+      <div class="film-sticky">
+        <div class="film-inner">
+          <div class="film-frame">
+            <div class="film-bars film-bars--t" aria-hidden="true"></div>
+            <div class="film-bars film-bars--b" aria-hidden="true"></div>
+
+            <article class="scene is-live">
+              <div class="scene-media" style="background-image:url('founder-office.jpg')"></div>
+              <div class="scene-veil"></div>
+              <div class="scene-copy">
+                <p class="scene-no">Scene 01 &middot; het doel</p>
+                <h3>Uw website wordt uw beste verkoper</h3>
+                <p>Een heldere structuur, rustige beweging en teksten die uitleggen waarom u de juiste keuze bent &mdash; tot de bezoeker op &lsquo;neem contact op&rsquo; klikt.</p>
+              </div>
+            </article>
+
+            <article class="scene">
+              <div class="scene-media" style="background-image:url('portfolio-klusbedrijf.jpg')"></div>
+              <div class="scene-veil"></div>
+              <div class="scene-copy">
+                <p class="scene-no">Scene 02 &middot; vindbaarheid</p>
+                <h3>Gebouwd om gevonden te worden</h3>
+                <p>Schone code, snelle laadtijden, een complete sitemap en teksten rond de woorden waarop uw klant echt zoekt. Mooi &eacute;n vindbaar.</p>
+              </div>
+            </article>
+
+            <article class="scene">
+              <div class="scene-media scene-media--brand"></div>
+              <div class="scene-veil"></div>
+              <div class="scene-copy">
+                <p class="scene-no">Scene 03 &middot; 3D en beweging</p>
+                <h3>Animatie met een doel, nooit als versiering</h3>
+                <p>Beweging leidt de aandacht en legt uit. Alles wordt getest op snelheid, zodat de wauw-factor uw bezoeker nooit laat wachten.</p>
+              </div>
+            </article>
+
+            <article class="scene">
+              <div class="scene-media" style="background-image:url('founder-portrait.jpg');background-position:center 20%"></div>
+              <div class="scene-veil"></div>
+              <div class="scene-copy">
+                <p class="scene-no">Scene 04 &middot; samenwerking</p>
+                <h3>E&eacute;n aanspreekpunt, van schets tot livegang</h3>
+                <p>U werkt direct met de maker. Korte lijnen, eerlijke taal en afspraken die staan &mdash; ook als het even tegenzit.</p>
+              </div>
+            </article>
+
+            <article class="scene">
+              <div class="scene-media scene-media--brand" style="filter:none"></div>
+              <div class="scene-veil"></div>
+              <div class="scene-copy">
+                <p class="scene-no">Scene 05 &middot; oplevering</p>
+                <h3>Binnen twee weken online</h3>
+                <p>Een vaste planning van kennismaking tot livegang op uw eigen domein. Daarna blijf ik bereikbaar voor onderhoud, uitbreiding en groei.</p>
+              </div>
+            </article>
+          </div>
+
+          <div class="film-hud">
+            <span>De film &middot; wat u krijgt</span>
+            <span id="film-tc">Scene 01 / 05 &middot; 00:00</span>
+            <span class="film-ticks" aria-hidden="true"><i class="is-live"></i><i></i><i></i><i></i><i></i></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CIJFERS ============ -->
+    <section class="section section--tight">
+      <div class="wrap">
+        <div class="stats reveal">
+          <div class="stat"><b><span data-count="14">14</span></b><span>dagen tot livegang</span></div>
+          <div class="stat"><b><span data-count="100" data-suffix="%">100%</span></b><span>op maat gebouwd</span></div>
+          <div class="stat"><b>0</b><span>templates gebruikt</span></div>
+          <div class="stat"><b>1</b><span>vast aanspreekpunt</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ INTRO / VAKMANSCHAP ============ -->
+    <section class="section" id="werkwijze">
+      <div class="wrap grid-2">
+        <div class="reveal" style="display:grid;gap:24px">
+          <p class="eyebrow">Wie het bouwt</p>
+          <h2 class="display">Vakmanschap met<br>een fundament.</h2>
+          <p class="lead">Ik ben Sven van Marle. Ik bouw websites voor ondernemers die serieus genomen willen worden: aannemers, ateliers, adviseurs en jonge merken. Geen verkooppraatjes, wel eerlijk advies over wat u nodig hebt &mdash; en wat niet.</p>
+          <p class="lead">Mijn werk rust op twee dingen: technisch vakmanschap en een christelijke werkethiek. Dat betekent afspraken nakomen, transparant zijn over prijs en planning, en uw belang boven mijn omzet stellen.</p>
+          <div class="act-actions" style="justify-content:flex-start">
+            <a class="btn btn--ghost" href="over-mij.html">Lees mijn verhaal <i>&rarr;</i></a>
+          </div>
+        </div>
+        <figure class="portrait reveal">
+          <img src="founder-office.jpg" alt="Sven van Marle werkt aan een website in zijn studio" loading="lazy">
+          <figcaption>Sven van Marle &middot; oprichter &amp; bouwer</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ============ FUNDAMENT / GELOOF ============ -->
+    <section class="section" id="fundament">
+      <div class="wrap">
+        <div class="verse-wrap reveal">
+          <p class="eyebrow eyebrow--center">Het fundament</p>
+          <p class="verse">&ldquo;Zo de HEERE het huis niet bouwt, tevergeefs arbeiden zijn bouwlieden daaraan.&rdquo;</p>
+          <p class="verse-ref">Psalm 127 : 1 &middot; Statenvertaling</p>
+          <p class="lead" style="text-align:center;margin:0 auto">Een website is bouwwerk. Techniek en smaak brengen u een heel eind, maar de manier waarop iets gebouwd wordt zegt evenveel als het resultaat. Daarom werk ik met open kaart, houd ik me aan mijn woord en lever ik werk waar ik met een gerust hart mijn naam onder zet.</p>
+        </div>
+
+        <div class="faith-grid">
+          <div class="faith reveal">
+            <h3>Eerlijk werk</h3>
+            <p>Vaste prijzen, geen verrassingen achteraf en geen functies die u niet nodig hebt. Als iets goedkoper of eenvoudiger kan, zeg ik dat.</p>
+            <em>&ldquo;Alwat gij doet, doet dat van harte, als voor den Heere.&rdquo; &mdash; Kolossenzen 3 : 23</em>
+          </div>
+          <div class="faith reveal">
+            <h3>Betrouwbaar</h3>
+            <p>Afspraken staan. U weet wanneer u iets van mij hoort, wat er opgeleverd wordt en wanneer de site live gaat.</p>
+            <em>&ldquo;Bevel den HEERE uw werken, en uw gedachten zullen bevestigd worden.&rdquo; &mdash; Spreuken 16 : 3</em>
+          </div>
+          <div class="faith reveal">
+            <h3>Dienstbaar</h3>
+            <p>Uw succes is de opdracht. Ik denk mee over uw klant, uw aanbod en uw groei &mdash; ook na de oplevering.</p>
+            <em>&ldquo;Laat ons niet liefhebben met den woorde, maar met de daad en waarheid.&rdquo; &mdash; 1 Johannes 3 : 18</em>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 4 DEMO'S ============ -->
+    <section class="section" id="demos">
+      <div class="wrap">
+        <div class="head reveal">
+          <p class="eyebrow">Vier demo&rsquo;s</p>
+          <h2 class="display">Zie het werk<br>in beweging.</h2>
+          <p class="lead">E&eacute;n live project en drie demo&rsquo;s die tonen wat er mogelijk is. Elke demo is volledig door mijzelf ontworpen en gebouwd &mdash; zodat u ziet wat u koopt voordat u iets betaalt.</p>
+        </div>
+
+        <div class="demos">
+          <article class="demo reveal">
+            <div class="demo-media" style="background-image:url('portfolio-klusbedrijf.jpg')"></div>
+            <div class="demo-body">
+              <p class="demo-tag">Live project &middot; bouw &amp; klussen</p>
+              <h3>Klusbedrijf De Zegen</h3>
+              <p>Een 3D-website voor een klusbedrijf: een interactief huis dat meebeweegt met de scroll, duidelijke diensten en een aanvraagformulier dat direct binnenkomt.</p>
+              <div class="demo-foot">
+                <a class="demo-link" href="https://vmstudios053.github.io/klusbedrijf-de-zegen-3d/" target="_blank" rel="noopener">Bekijk de live site <i>&rarr;</i></a>
+                <span class="demo-meta">Three.js &middot; SEO</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="demo reveal">
+            <div class="demo-media demo-media--a"></div>
+            <div class="demo-body">
+              <p class="demo-tag">Demo &middot; fotografie &amp; studio</p>
+              <h3>Studio Noir</h3>
+              <p>Een donkere, rustige portfolio waarin het beeld alle ruimte krijgt. Zachte overgangen, grote typografie en een galerij die als een film afspeelt.</p>
+              <div class="demo-foot">
+                <a class="demo-link" href="portfolio.html">Bekijk de demo <i>&rarr;</i></a>
+                <span class="demo-meta">Concept &middot; visuele stijl</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="demo reveal">
+            <div class="demo-media demo-media--b"></div>
+            <div class="demo-body">
+              <p class="demo-tag">Demo &middot; zakelijke dienstverlening</p>
+              <h3>Northline Advies</h3>
+              <p>Vertrouwen als ontwerpdoel: heldere structuur, leesbare cijfers, korte teksten en een contactroute die in twee klikken klaar is.</p>
+              <div class="demo-foot">
+                <a class="demo-link" href="portfolio.html">Bekijk de demo <i>&rarr;</i></a>
+                <span class="demo-meta">Concept &middot; conversie</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="demo reveal">
+            <div class="demo-media demo-media--c"></div>
+            <div class="demo-body">
+              <p class="demo-tag">Demo &middot; ambacht &amp; maatwerk</p>
+              <h3>Atelier Vaes</h3>
+              <p>Warm, rustig en tactiel. Materialen in beeld, een verhaal per project en een prijsindicatie die vragen wegneemt voordat ze gesteld worden.</p>
+              <div class="demo-foot">
+                <a class="demo-link" href="portfolio.html">Bekijk de demo <i>&rarr;</i></a>
+                <span class="demo-meta">Concept &middot; merkverhaal</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PROCES ============ -->
+    <section class="section" id="proces">
+      <div class="wrap">
+        <div class="head reveal">
+          <p class="eyebrow">Het proces</p>
+          <h2 class="display">Van eerste afspraak<br>tot live in twee weken.</h2>
+          <p class="lead">Geen langdurige trajecten en geen onduidelijke facturen. Vier stappen, een vaste planning en helder wat er van u verwacht wordt.</p>
+        </div>
+
+        <div class="proces reveal">
+          <div class="step">
+            <p class="step-when">Dag 1 &middot; gratis</p>
+            <h3>Kennismaking</h3>
+            <p>Een open gesprek van een half uur. Ik luister naar uw doel, uw klant en wat u nu mist. U krijgt direct advies &mdash; ook als we niet samenwerken.</p>
+            <span class="step-num">01</span>
+          </div>
+          <div class="step">
+            <p class="step-when">Dag 2 &ndash; 4</p>
+            <h3>Ontwerp &amp; richting</h3>
+            <p>Ik teken de structuur, de sfeer en de teksten. U ziet en keurt het ontwerp goed voordat er &eacute;&eacute;n regel code wordt geschreven.</p>
+            <span class="step-num">02</span>
+          </div>
+          <div class="step">
+            <p class="step-when">Week 1 &ndash; 2</p>
+            <h3>Bouw, 3D &amp; SEO</h3>
+            <p>Met de hand gebouwd: snel, veilig en vindbaar. Beweging en 3D worden toegevoegd waar ze uw boodschap versterken, nooit als opsmuk.</p>
+            <span class="step-num">03</span>
+          </div>
+          <div class="step">
+            <p class="step-when">Binnen 2 weken live</p>
+            <h3>Livegang &amp; nazorg</h3>
+            <p>De site gaat live op uw eigen domein, met sitemap, SSL en SEO in orde. Daarna blijf ik bereikbaar voor updates, uitbreiding en groei.</p>
+            <span class="step-num">04</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CTA ============ -->
+    <section class="band">
+      <div class="wrap">
+        <p class="eyebrow eyebrow--center reveal">Klaar om te bouwen</p>
+        <h2 class="reveal">Laten we uw website maken zoals u hem bedoeld had.</h2>
+        <p class="lead reveal">Vertel me kort waar u naartoe wilt. Binnen &eacute;&eacute;n werkdag hoort u wat er mogelijk is, wat het kost en wanneer u live kunt zijn.</p>
+        <div class="act-actions reveal">
+          <a class="btn btn--gold" href="contact.html">Plan een gesprek <i>&rarr;</i></a>
+          <a class="btn btn--ghost" href="mailto:info@vanmarlewebdesign.nl">info@vanmarlewebdesign.nl</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="foot">
+    <div class="wrap">
+      <div class="foot-grid">
+        <div class="foot-brand">
+          <img src="logo.png" alt="Logo Van Marle Webdesign" width="42" height="42" loading="lazy">
+          <p>Cinematische, functionele websites voor ondernemers die serieus genomen willen worden. Ontworpen en gebouwd in Nederland.</p>
+          <p style="color:var(--gold);font-size:.86rem">Gebouwd met vakmanschap en een christelijke werkethiek van eerlijkheid en toewijding.</p>
+        </div>
+        <div>
+          <h4>Navigatie</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="diensten.html">Diensten</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="over-mij.html">Over mij</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="mailto:info@vanmarlewebdesign.nl">info@vanmarlewebdesign.nl</a></li>
+            <li><a href="contact.html">Plan een gesprek</a></li>
+            <li><span style="color:var(--muted-2);font-size:.92rem">Reactie binnen &eacute;&eacute;n werkdag</span></li>
+            <li><span style="color:var(--muted-2);font-size:.92rem">Werkzaam in heel Nederland</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="foot-base">
+        <span>&copy; 2026 Van Marle Webdesign</span>
+        <span>Ontworpen &amp; gebouwd door Sven van Marle</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="cinematic.js"></script>
 </body>
-</htmlPage_Down
+</html>
