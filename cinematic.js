@@ -201,7 +201,7 @@
 
     scene3 = new THREE.Scene();
     camera3 = new THREE.PerspectiveCamera(38, canvas.clientWidth / canvas.clientHeight, 0.1, 120);
-    camera3.position.set(0, 0, 5.4);
+    camera3.position.set(0, 0, 6.3);
 
     /* omgevingsreflectie: donkere lucht, gouden horizon, blauwe diepte */
     var envSource = new THREE.CanvasTexture(gradientCanvas(['#03060d', '#0b1224', '#f0d79b', '#d9b45a', '#2f5fd0', '#050a16'], 32, 512, true));
@@ -252,7 +252,7 @@
         color: goldCol.clone().lerp(blueCol, j / (pts.length - 1)),
         metalness: 1, roughness: 0.26, envMap: env, envMapIntensity: 1.3
       });
-      var joint = new THREE.Mesh(new THREE.SphereGeometry(0.066, 24, 18), jm);
+      var joint = new THREE.Mesh(new THREE.SphereGeometry(0.058, 24, 18), jm);
       joint.position.set(pts[j][0], pts[j][1], 0);
       logo.add(joint);
     }
@@ -309,9 +309,10 @@
 
     /* choreografie: het merk draait, wijkt en stijgt terwijl de site zich opent */
     var e = easeInOut(p);
-    var x = p < 0.45 ? lerp(0, -1.28, easeInOut(p / 0.45)) : lerp(-1.28, 0, easeInOut((p - 0.45) / 0.55));
-    var y = p < 0.45 ? lerp(0, 0.08, p / 0.45) : lerp(0.08, 1.12, easeInOut((p - 0.45) / 0.55));
-    var s = p < 0.5 ? lerp(1, 0.94, p / 0.5) : lerp(0.94, 0.34, easeInOut((p - 0.5) / 0.5));
+    var k = window.innerWidth < 820 ? 0.66 : 1;
+    var x = p < 0.45 ? lerp(0, -1.55, easeInOut(p / 0.45)) : lerp(-1.55, 0, easeInOut((p - 0.45) / 0.55));
+    var y = p < 0.45 ? lerp(0.88, 0.64, p / 0.45) : lerp(0.64, 1.45, easeInOut((p - 0.45) / 0.55));
+    var s = (p < 0.5 ? lerp(0.74, 0.68, p / 0.5) : lerp(0.68, 0.26, easeInOut((p - 0.5) / 0.5))) * k;
 
     logo.position.set(x, y, lerp(0, 0.7, p));
     logo.scale.setScalar(s);
@@ -319,9 +320,9 @@
     logo.rotation.x = lerp(0.05, 0.3, p) + pointer.y * 0.14;
     logo.rotation.z = Math.sin(now * 0.00013) * 0.02;
 
-    camera3.position.z = lerp(5.4, 4.15, e);
+    camera3.position.z = lerp(6.3, 4.95, e);
     camera3.position.y = lerp(0, 0.22, p);
-    camera3.lookAt(0, y * 0.35, 0);
+    camera3.lookAt(0, y * 0.5, 0);
 
     dust.rotation.y += 0.0004;
     dust.position.y = -p * 1.6;
