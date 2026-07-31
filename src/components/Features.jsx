@@ -25,7 +25,7 @@ export default function Features() {
   const ref = useReveal()
 
   return (
-    <section ref={ref} id="diensten" className="relative py-28 md:py-40">
+    <section ref={ref} id="diensten" data-chapter="HET ONTWERP" className="relative py-28 md:py-40">
       <div className="mx-auto max-w-6xl px-6">
         <div data-reveal className="max-w-2xl">
           <p className="eyebrow mb-5">Wat u krijgt</p>
