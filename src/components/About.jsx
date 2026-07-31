@@ -40,7 +40,7 @@ export default function About() {
           </div>
           <figure data-reveal className="card overflow-hidden">
             <img
-              src="/founder-office.jpg"
+              src="founder-office.jpg"
               alt="Sven van Marle werkt aan een website in zijn studio"
               loading="lazy"
               className="aspect-[4/3] w-full object-cover"

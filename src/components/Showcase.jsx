@@ -23,7 +23,7 @@ export default function Showcase() {
             aria-label="Bekijk de live site van Klusbedrijf De Zegen"
           >
             <img
-              src="/portfolio-klusbedrijf.jpg"
+              src="portfolio-klusbedrijf.jpg"
               alt="3D-website van Klusbedrijf De Zegen"
               loading="lazy"
               className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
