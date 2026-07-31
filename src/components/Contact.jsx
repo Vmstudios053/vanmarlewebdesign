@@ -4,7 +4,7 @@ export default function Contact() {
   const ref = useReveal()
 
   return (
-    <section ref={ref} id="contact" className="relative py-28 md:py-44">
+    <section ref={ref} id="contact" data-bg="#101430" className="relative py-28 md:py-44">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_55%_45%_at_50%_55%,rgba(217,180,90,0.08),transparent)]" />
       <div className="relative mx-auto max-w-3xl px-6 text-center">
         <p data-reveal className="eyebrow mb-6">Klaar om te bouwen</p>

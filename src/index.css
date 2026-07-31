@@ -1,16 +1,19 @@
 @import "tailwindcss";
 
 @theme {
-  --color-night: #04060b;
-  --color-night-2: #080c15;
-  --color-night-3: #0d1220;
+  /* Stille zomernacht: diep donkerblauw met warme oranje/amber maangloed. */
+  --color-night: #0a1128;
+  --color-night-2: #0d1b3a;
+  --color-night-3: #131d3e;
+  --color-ember: #ff8c42;
+  --color-amber: #f5a623;
   --color-gold: #d9b45a;
-  --color-gold-soft: #e8cf8f;
+  --color-gold-soft: #f2c98a;
   --color-ivory: #f7f3e8;
   --color-blue: #5b8dff;
-  --color-muted: #9aa3b5;
-  --color-muted-2: #6b7488;
-  --color-line: rgba(217, 180, 90, 0.16);
+  --color-muted: #a3abc2;
+  --color-muted-2: #6f7894;
+  --color-line: rgba(245, 166, 35, 0.16);
 
   --font-display: "Cormorant Garamond", Georgia, serif;
   --font-body: "Inter", system-ui, sans-serif;
@@ -55,8 +58,60 @@ body {
   font-size: 0.72rem;
   letter-spacing: 0.34em;
   text-transform: uppercase;
-  color: var(--color-gold);
+  color: var(--color-amber);
   font-weight: 500;
+}
+
+/* Ghost text: heldere kop vooraan, vervaagde outline-echo erachter. */
+.ghost-wrap {
+  position: relative;
+}
+
+.ghost-echo {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -54%) scale(1.6);
+  font-family: var(--font-display);
+  font-weight: 400;
+  line-height: 1;
+  white-space: nowrap;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(245, 166, 35, 0.09);
+  pointer-events: none;
+  user-select: none;
+  z-index: -1;
+}
+
+.ghost-wrap--left .ghost-echo {
+  left: 0;
+  transform: translate(-4%, -54%) scale(1.6);
+}
+
+/* Grote sectienummers als subtiele scrollmarkers op de achtergrond. */
+.section-no {
+  position: absolute;
+  top: 4vh;
+  right: 2vw;
+  font-family: var(--font-display);
+  font-size: clamp(9rem, 24vw, 22rem);
+  line-height: 1;
+  color: rgba(247, 243, 232, 0.028);
+  -webkit-text-stroke: 1px rgba(245, 166, 35, 0.045);
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+}
+
+/* Vaste maangloed linksboven over de hele reis. */
+.moonglow {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(340px 340px at 11% 9%, rgba(247, 233, 200, 0.13), transparent 70%),
+    radial-gradient(900px 700px at 14% 6%, rgba(245, 166, 35, 0.07), transparent 65%),
+    radial-gradient(1400px 900px at 85% 110%, rgba(13, 27, 58, 0.55), transparent 70%);
 }
 
 .display {
@@ -78,18 +133,18 @@ body {
   gap: 0.6rem;
   padding: 0.95rem 1.9rem;
   border-radius: 999px;
-  background: linear-gradient(120deg, #c9a24a, #e8cf8f 55%, #c9a24a);
-  color: #171203;
+  background: linear-gradient(120deg, #f5a623, #ffb35c 55%, #ff8c42);
+  color: #1c0f02;
   font-weight: 500;
   font-size: 0.92rem;
   letter-spacing: 0.02em;
   transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s;
-  box-shadow: 0 10px 34px rgba(217, 180, 90, 0.22);
+  box-shadow: 0 10px 34px rgba(255, 140, 66, 0.24);
 }
 
 .btn-gold:hover {
   transform: translateY(-2px);
-  box-shadow: 0 16px 44px rgba(217, 180, 90, 0.34);
+  box-shadow: 0 16px 44px rgba(255, 140, 66, 0.36);
 }
 
 .btn-ghost {

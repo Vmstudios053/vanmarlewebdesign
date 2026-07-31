@@ -36,8 +36,9 @@ export default function BookingDemo() {
   }, [])
 
   return (
-    <section ref={ref} data-chapter="DE AGENDA" className="relative py-28 md:py-40">
-      <div className="mx-auto max-w-6xl px-6 grid gap-14 lg:grid-cols-2 lg:items-center">
+    <section ref={ref} data-chapter="DE AGENDA" data-bg="#101a38" className="relative py-28 md:py-40">
+      <span className="section-no" aria-hidden>04</span>
+      <div className="relative mx-auto max-w-6xl px-6 grid gap-14 lg:grid-cols-2 lg:items-center">
         <div data-reveal>
           <p className="eyebrow mb-5">De agenda-module</p>
           <h2 className="display text-4xl md:text-6xl mb-6">
