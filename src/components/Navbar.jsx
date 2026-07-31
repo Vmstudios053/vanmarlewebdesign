@@ -26,7 +26,7 @@ export default function Navbar() {
     >
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6">
         <a href="#top" className="flex items-center gap-3" aria-label="Van Marle Webdesign, naar boven">
-          <img src="/logo.png" alt="Logo Van Marle Webdesign" width="34" height="34" className="rounded-full" />
+          <img src="logo.png" alt="Logo Van Marle Webdesign" width="34" height="34" className="rounded-full" />
           <span className="font-display text-lg leading-none">
             Van Marle
             <small className="block text-[0.62rem] uppercase tracking-[0.3em] text-gold font-body">Webdesign</small>
