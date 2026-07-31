@@ -25,11 +25,13 @@ export default function Features() {
   const ref = useReveal()
 
   return (
-    <section ref={ref} id="diensten" data-chapter="HET ONTWERP" className="relative py-28 md:py-40">
-      <div className="mx-auto max-w-6xl px-6">
+    <section ref={ref} id="diensten" data-chapter="HET ONTWERP" data-bg="#0c1633" className="relative py-28 md:py-40">
+      <span className="section-no" aria-hidden>02</span>
+      <div className="relative mx-auto max-w-6xl px-6">
         <div data-reveal className="max-w-2xl">
           <p className="eyebrow mb-5">Wat u krijgt</p>
-          <h2 className="display text-4xl md:text-6xl mb-6">
+          <h2 className="display relative text-4xl md:text-6xl mb-6">
+            <span className="ghost-echo" aria-hidden>Ontwerp</span>
             Gebouwd voor vakmensen<br />
             <span className="text-gold-soft italic">die geen tijd hebben voor gedoe.</span>
           </h2>

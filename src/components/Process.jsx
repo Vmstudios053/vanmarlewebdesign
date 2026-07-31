@@ -27,7 +27,7 @@ export default function Process() {
   const ref = useReveal()
 
   return (
-    <section ref={ref} id="proces" className="relative py-28 md:py-40">
+    <section ref={ref} id="proces" data-bg="#0b0e28" className="relative py-28 md:py-40">
       <div className="mx-auto max-w-6xl px-6">
         <div data-reveal className="max-w-2xl">
           <p className="eyebrow mb-5">Het proces</p>

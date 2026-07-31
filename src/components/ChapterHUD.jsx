@@ -1,69 +1,73 @@
 import { useEffect, useRef, useState } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import useChapter, { CHAPTERS } from '../hooks/useChapter'
 
 gsap.registerPlugin(ScrollTrigger)
 
-export const CHAPTERS = ['HET IDEE', 'HET ONTWERP', 'DE BOUW', 'DE AGENDA', 'SEO', 'LIVE']
+const pretty = (c) => c.charAt(0) + c.slice(1).toLowerCase()
 
-// Vaste reis-HUD: hoofdstuk-label linksonder, voortgang rechtsonder.
+// Zwevende pill onderin het midden (zoals klimt's 'Our Wines') plus een
+// subtiele voortgangsrail rechts.
 export default function ChapterHUD() {
-  const [chapter, setChapter] = useState(CHAPTERS[0])
+  const chapter = useChapter()
+  const [atTop, setAtTop] = useState(true)
   const fillRef = useRef(null)
-  const pctRef = useRef(null)
 
   useEffect(() => {
-    const triggers = gsap.utils.toArray('[data-chapter]').map((sec) =>
-      ScrollTrigger.create({
-        trigger: sec,
-        start: 'top 55%',
-        end: 'bottom 55%',
-        onToggle: (self) => {
-          if (self.isActive) setChapter(sec.dataset.chapter)
-        },
-      })
-    )
+    const onScroll = () => setAtTop(window.scrollY < 120)
+    window.addEventListener('scroll', onScroll, { passive: true })
     const progress = ScrollTrigger.create({
       start: 0,
       end: 'max',
       onUpdate: (self) => {
         if (fillRef.current) fillRef.current.style.height = `${self.progress * 100}%`
-        if (pctRef.current) pctRef.current.textContent = `${Math.round(self.progress * 100)}%`
       },
     })
     return () => {
-      triggers.forEach((t) => t.kill())
+      window.removeEventListener('scroll', onScroll)
       progress.kill()
     }
   }, [])
 
+  const goNext = () => {
+    const sections = Array.from(document.querySelectorAll('[data-chapter]'))
+    const i = sections.findIndex((s) => s.dataset.chapter === chapter)
+    const next = sections[i + 1] || document.querySelector('#contact')
+    next?.scrollIntoView({ behavior: 'smooth' })
+  }
+
+  const label = atTop ? 'Ontdek de reis' : pretty(chapter)
   const index = CHAPTERS.indexOf(chapter)
 
   return (
     <>
-      <div className="pointer-events-none fixed bottom-7 left-6 md:left-8 z-40 hidden sm:block" aria-hidden>
-        <div className="rounded-full bg-night/45 px-4 py-2 backdrop-blur-sm border border-white/5">
-          <div className="flex items-baseline gap-3">
-            <span className="text-[0.62rem] tracking-[0.3em] text-gold tabular-nums">
-              {String(index + 1).padStart(2, '0')} / {String(CHAPTERS.length).padStart(2, '0')}
-            </span>
-            <span
-              key={chapter}
-              className="text-[0.7rem] tracking-[0.35em] text-ivory/90"
-              style={{ animation: 'chapterIn 0.6s ease both' }}
-            >
-              {chapter}
-            </span>
-          </div>
-        </div>
-        <style>{`@keyframes chapterIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}`}</style>
-      </div>
+      <button
+        onClick={goNext}
+        className="fixed bottom-6 left-1/2 z-40 -translate-x-1/2 flex items-center gap-3 rounded-full border border-amber/25 bg-night/55 px-6 py-3 backdrop-blur-md transition-colors hover:border-amber/60 cursor-pointer"
+        aria-label={`Huidig hoofdstuk: ${pretty(chapter)}. Naar het volgende hoofdstuk.`}
+      >
+        <span className="relative flex h-2 w-2">
+          <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-amber/50" />
+          <span className="relative inline-flex h-2 w-2 rounded-full bg-amber" />
+        </span>
+        <span key={label} className="text-[0.72rem] tracking-[0.3em] uppercase text-ivory/90" style={{ animation: 'pillIn 0.5s ease both' }}>
+          {label}
+        </span>
+        <span className="text-amber/80" aria-hidden>↓</span>
+        <style>{`@keyframes pillIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}`}</style>
+      </button>
 
-      <div className="pointer-events-none fixed bottom-7 right-6 md:right-8 z-40 hidden sm:flex flex-col items-center gap-2" aria-hidden>
+      <div className="pointer-events-none fixed bottom-7 right-6 md:right-8 z-40 hidden md:flex flex-col items-center gap-2" aria-hidden>
+        <span className="text-[0.6rem] tracking-[0.25em] text-muted-2 tabular-nums">
+          {String(index + 1).padStart(2, '0')}
+        </span>
         <div className="h-24 w-px overflow-hidden bg-white/12">
-          <div ref={fillRef} className="w-full bg-gradient-to-b from-gold to-gold-soft" style={{ height: '0%' }} />
+          <div ref={fillRef} className="w-full bg-gradient-to-b from-amber to-ember" style={{ height: '0%' }} />
         </div>
-        <span ref={pctRef} className="text-[0.6rem] tracking-[0.2em] text-muted-2 tabular-nums">0%</span>
+        <span className="text-[0.6rem] tracking-[0.25em] text-muted-2 tabular-nums">
+          {String(CHAPTERS.length).padStart(2, '0')}
+        </span>
       </div>
     </>
   )

@@ -51,12 +51,14 @@ export default function Pricing() {
   const ref = useReveal()
 
   return (
-    <section ref={ref} id="pakketten" data-chapter="LIVE" className="relative py-28 md:py-40">
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_35%,rgba(240,169,92,0.08),transparent)]" aria-hidden />
+    <section ref={ref} id="pakketten" data-chapter="LIVE" data-bg="#0d0f2e" className="relative py-28 md:py-40">
+      <span className="section-no" aria-hidden>06</span>
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_35%,rgba(255,140,66,0.07),transparent)]" aria-hidden />
       <div className="relative mx-auto max-w-6xl px-6">
         <div data-reveal className="mx-auto max-w-2xl text-center">
           <p className="eyebrow mb-5">The Ledger · drie pakketten</p>
-          <h2 className="display text-4xl md:text-6xl mb-6">
+          <h2 className="display relative text-4xl md:text-6xl mb-6">
+            <span className="ghost-echo" aria-hidden>Pakketten</span>
             Geen grote investering vooraf.<br />
             <span className="text-gold-soft italic">Gewoon een vast bedrag per maand.</span>
           </h2>
