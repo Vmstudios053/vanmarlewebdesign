@@ -4,7 +4,7 @@ export default function Showcase() {
   const ref = useReveal()
 
   return (
-    <section ref={ref} id="werk" className="relative py-28 md:py-40">
+    <section ref={ref} id="werk" data-chapter="SEO" className="relative py-28 md:py-40">
       <div className="mx-auto max-w-6xl px-6">
         <div data-reveal className="max-w-2xl">
           <p className="eyebrow mb-5">Live project</p>

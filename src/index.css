@@ -118,6 +118,33 @@ body {
   backdrop-filter: blur(8px);
 }
 
+.glass {
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  background: linear-gradient(160deg, rgba(19, 25, 42, 0.5), rgba(8, 12, 21, 0.62));
+  border: 1px solid rgba(217, 180, 90, 0.18);
+}
+
+.glass-card {
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  background: linear-gradient(165deg, rgba(24, 31, 52, 0.42), rgba(8, 12, 21, 0.55));
+  border: 1px solid rgba(247, 243, 232, 0.1);
+}
+
+/* Eén warme lichtbron met god rays: zachte bundels vanuit de maan linksboven. */
+.god-rays {
+  position: absolute;
+  inset: -10%;
+  pointer-events: none;
+  background:
+    conic-gradient(from 128deg at 12% -6%, transparent 0deg, rgba(240, 169, 92, 0.14) 7deg, transparent 14deg, transparent 21deg, rgba(240, 169, 92, 0.09) 27deg, transparent 34deg, transparent 43deg, rgba(232, 207, 143, 0.07) 49deg, transparent 57deg),
+    radial-gradient(ellipse 46% 34% at 12% -4%, rgba(240, 169, 92, 0.16), transparent 70%);
+  filter: blur(14px);
+  mix-blend-mode: screen;
+  opacity: 0.75;
+}
+
 .grain::after {
   content: "";
   position: fixed;

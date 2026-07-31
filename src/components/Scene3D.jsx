@@ -5,7 +5,8 @@ import * as THREE from 'three'
 import { heroState } from '../scrollState'
 
 const GOLD = '#d9b45a'
-const BLUE = '#5b8dff'
+const WARM = '#f0a95c'
+const BLUE = '#3d5fb0'
 const DARK = '#0b101c'
 
 // Onderdelen van het huis: eindpositie, startoffset en het venster
@@ -40,7 +41,8 @@ function House() {
     const p = heroState.progress
 
     if (group.current) {
-      group.current.rotation.y = 0.35 + t * 0.08 + p * Math.PI * 0.5
+      // Climax: het afgebouwde huis draait langzaam verder in beeld.
+      group.current.rotation.y = 0.35 + t * 0.07 + p * Math.PI * 0.6
       group.current.position.y = -0.25 + Math.sin(t * 0.6) * 0.06
     }
 
@@ -74,10 +76,10 @@ function House() {
           )}
           <meshStandardMaterial
             color={DARK}
-            emissive="#141d33"
-            emissiveIntensity={0.8}
-            roughness={0.4}
-            metalness={0.55}
+            emissive="#1a1626"
+            emissiveIntensity={0.7}
+            roughness={0.42}
+            metalness={0.5}
             transparent
             flatShading
           />
@@ -88,15 +90,39 @@ function House() {
   )
 }
 
+// De maan in een stille zomernacht: warm oplichtende bol plus één warme hoofdlichtbron.
+function Moon() {
+  return (
+    <group position={[-7, 6.5, -12]}>
+      <mesh>
+        <sphereGeometry args={[1.5, 32, 32]} />
+        <meshBasicMaterial color="#f7e9c8" />
+      </mesh>
+      <mesh scale={1.6}>
+        <sphereGeometry args={[1.5, 32, 32]} />
+        <meshBasicMaterial color={WARM} transparent opacity={0.16} blending={THREE.AdditiveBlending} depthWrite={false} />
+      </mesh>
+      <mesh scale={2.6}>
+        <sphereGeometry args={[1.5, 32, 32]} />
+        <meshBasicMaterial color={WARM} transparent opacity={0.07} blending={THREE.AdditiveBlending} depthWrite={false} />
+      </mesh>
+    </group>
+  )
+}
+
 function CameraRig() {
   useFrame((state) => {
     const p = heroState.progress
     const px = state.pointer.x
     const py = state.pointer.y
     const cam = state.camera
-    cam.position.x += (px * 0.6 - cam.position.x) * 0.04
-    cam.position.y += (0.6 + py * 0.4 - cam.position.y) * 0.04
-    cam.position.z += (7.4 + p * 1.3 - cam.position.z) * 0.05
+    // Reis door de scene: lage start in de mist, boog omhoog en uitzoomen naar de top.
+    const targetX = px * 0.6 + Math.sin(p * Math.PI) * 1.3
+    const targetY = 0.25 + p * 1.1 + py * 0.35
+    const targetZ = 6.4 + p * 2.2
+    cam.position.x += (targetX - cam.position.x) * 0.045
+    cam.position.y += (targetY - cam.position.y) * 0.045
+    cam.position.z += (targetZ - cam.position.z) * 0.05
     cam.lookAt(0, 0.2, 0)
   })
   return null
@@ -106,15 +132,17 @@ export default function Scene3D() {
   return (
     <Canvas
       dpr={[1, 1.75]}
-      camera={{ position: [0, 0.6, 7.2], fov: 42 }}
+      camera={{ position: [0, 0.25, 6.4], fov: 42 }}
       gl={{ antialias: true, alpha: true, powerPreference: 'high-performance' }}
       style={{ position: 'absolute', inset: 0 }}
     >
-      <ambientLight intensity={0.35} />
-      <directionalLight position={[4, 6, 4]} intensity={1.1} color="#fff6dd" />
-      <pointLight position={[-5, 2, -3]} intensity={14} color={BLUE} />
-      <pointLight position={[3, -1, 4]} intensity={10} color={GOLD} />
+      {/* Filmische belichting: één warme hoofdbron (de maan), diepblauwe tegenvulling. */}
+      <ambientLight intensity={0.18} color="#2a3352" />
+      <directionalLight position={[-7, 6.5, -4]} intensity={1.6} color="#f2c98a" />
+      <pointLight position={[-5, 4, -2]} intensity={22} color={WARM} />
+      <pointLight position={[4, -1, 4]} intensity={6} color={BLUE} />
 
+      <Moon />
       <House />
 
       <Grid
@@ -122,19 +150,19 @@ export default function Scene3D() {
         args={[40, 40]}
         cellSize={0.7}
         cellThickness={0.4}
-        cellColor="#1a2236"
+        cellColor="#171f33"
         sectionSize={3.5}
         sectionThickness={0.8}
-        sectionColor="#243252"
+        sectionColor="#22304e"
         fadeDistance={26}
         fadeStrength={2.2}
         infiniteGrid
       />
 
-      <Sparkles count={90} scale={[14, 8, 10]} size={1.6} speed={0.25} opacity={0.5} color={GOLD} />
-      <Sparkles count={50} scale={[16, 9, 12]} size={1.2} speed={0.18} opacity={0.35} color={BLUE} />
+      <Sparkles count={90} scale={[14, 8, 10]} size={1.7} speed={0.22} opacity={0.5} color={GOLD} />
+      <Sparkles count={45} scale={[16, 9, 12]} size={1.1} speed={0.15} opacity={0.3} color="#7c9dea" />
 
-      <fog attach="fog" args={['#04060b', 9, 26]} />
+      <fog attach="fog" args={['#04060b', 7.5, 23]} />
       <CameraRig />
     </Canvas>
   )
