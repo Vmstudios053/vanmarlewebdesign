@@ -3,8 +3,9 @@ import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig({
-  // Relatieve paden: werkt zowel op een GitHub Pages-subpad als op het eigen domein.
-  base: './',
+  // GitHub Pages serveert dit project op /vanmarlewebdesign/.
+  // Let op: wijzig dit naar '/' zodra de site op het eigen domein (root) draait.
+  base: '/vanmarlewebdesign/',
   plugins: [react(), tailwindcss()],
   build: {
     chunkSizeWarningLimit: 1200,
