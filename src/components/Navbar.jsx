@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import useChapter from '../hooks/useChapter'
+import Emblem from './Emblem.jsx'
 
 const LINKS = [
   { href: '#diensten', label: 'Diensten' },
@@ -30,9 +31,12 @@ export default function Navbar() {
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 md:px-10">
         <div className="flex items-center gap-10">
-          <a href="#top" className="font-display text-lg leading-none tracking-wide" aria-label="Van Marle Webdesign, naar boven">
-            Van Marle
-            <small className="block text-[0.6rem] uppercase tracking-[0.32em] text-amber font-body">Webdesign</small>
+          <a href="#top" className="flex items-center gap-3" aria-label="Van Marle Webdesign, naar boven">
+            <Emblem size={40} />
+            <span className="font-display text-lg leading-none tracking-wide">
+              Van Marle
+              <small className="block text-[0.6rem] uppercase tracking-[0.32em] text-amber font-body">Webdesign</small>
+            </span>
           </a>
           <nav className="hidden items-center gap-7 lg:flex" aria-label="Hoofdmenu">
             {LINKS.map((l) => (

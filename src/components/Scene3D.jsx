@@ -186,10 +186,10 @@ export default function Scene3D() {
         style={{ position: 'absolute', inset: 0 }}
       >
         {/* Maanlicht als koele hoofdbron, oranje rimlight van achter-rechts */}
-        <ambientLight intensity={0.16} color="#26304f" />
-        <directionalLight position={[-7, 7, 3]} intensity={1.25} color="#dce6ff" />
-        <pointLight position={[3.4, 1.6, -3.2]} intensity={30} color={EMBER} />
-        <pointLight position={[-3, 0.5, 3.5]} intensity={5} color={AMBER} />
+        <ambientLight intensity={0.26} color="#2e3a5e" />
+        <directionalLight position={[-7, 7, 3]} intensity={1.55} color="#dce6ff" />
+        <pointLight position={[3.4, 1.6, -3.2]} intensity={36} color={EMBER} />
+        <pointLight position={[-3, 0.5, 3.5]} intensity={8} color={AMBER} />
 
         <Moon />
         <Maquette />

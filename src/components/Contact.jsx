@@ -13,17 +13,19 @@ export default function Contact() {
           <span className="text-gold-soft italic">zoals u hem bedoeld had.</span>
         </h2>
         <p data-reveal className="lead mx-auto max-w-xl text-lg">
-          Vertel me kort waar u naartoe wilt. Binnen één werkdag hoort u wat er mogelijk is, welk pakket past en wanneer u live kunt zijn.
+          Vertel me kort wat voor bedrijf u hebt en waar u naartoe wilt. Binnen één werkdag hoort u wat er mogelijk is, welk pakket past en wanneer u live kunt zijn — vrijblijvend en in gewoon Nederlands.
         </p>
         <div data-reveal className="mt-10 flex flex-wrap items-center justify-center gap-4">
-          <a href="mailto:info@vanmarlewebdesign.nl?subject=Plan%20een%20gesprek" className="btn-gold">
-            Plan een gesprek <span aria-hidden>→</span>
+          <a href="mailto:info@vanmarlewebdesign.nl?subject=Offerte%20aanvragen" className="btn-gold">
+            Vraag vrijblijvend een offerte aan <span aria-hidden>→</span>
           </a>
-          <a href="mailto:info@vanmarlewebdesign.nl" className="btn-ghost">info@vanmarlewebdesign.nl</a>
+          <a href="mailto:info@vanmarlewebdesign.nl?subject=Plan%20een%20gesprek" className="btn-ghost">Plan een gesprek</a>
         </div>
-        <p data-reveal className="mt-8 text-sm text-muted-2">
-          Reactie binnen één werkdag · Werkzaam in heel Nederland
-        </p>
+        <ul data-reveal className="mt-9 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-sm text-muted-2">
+          <li className="flex items-center gap-2"><span className="text-amber" aria-hidden>✓</span> Reactie binnen één werkdag</li>
+          <li className="flex items-center gap-2"><span className="text-amber" aria-hidden>✓</span> Vrijblijvende offerte</li>
+          <li className="flex items-center gap-2"><span className="text-amber" aria-hidden>✓</span> Werkzaam in heel Nederland</li>
+        </ul>
       </div>
     </section>
   )
