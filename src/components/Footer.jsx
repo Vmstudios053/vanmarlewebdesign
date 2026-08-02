@@ -1,14 +1,16 @@
+import Emblem from './Emblem.jsx'
+
 export default function Footer() {
   return (
-    <footer className="border-t border-line py-14">
+    <footer className="relative z-10 border-t border-line py-14">
       <div className="mx-auto grid max-w-6xl gap-10 px-6 md:grid-cols-3">
         <div className="flex flex-col gap-4">
           <div className="flex items-center gap-3">
-            <img src="logo.png" alt="Logo Van Marle Webdesign" width="42" height="42" loading="lazy" className="rounded-full" />
+            <Emblem size={44} alt="Logo Van Marle Webdesign" />
             <span className="font-display text-lg">Van Marle Webdesign</span>
           </div>
           <p className="lead text-sm">
-            Cinematische 3D-websites met online agenda en SEO, voor klusbedrijven en zzp'ers die serieus genomen willen worden. Ontworpen en gebouwd in Nederland.
+            Cinematische 3D-websites met online agenda en SEO, voor klusbedrijven, schilders, bouw- en timmerbedrijven, stukadoors en renovatiespecialisten. Ontworpen en gebouwd in Nederland.
           </p>
           <p className="text-sm text-gold/80">
             Gebouwd met vakmanschap en een christelijke werkethiek van eerlijkheid en toewijding.

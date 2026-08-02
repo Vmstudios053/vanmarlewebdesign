@@ -4,20 +4,20 @@ const FEATURES = [
   {
     no: '01',
     tag: '3D & beweging',
-    title: 'Een website die indruk maakt',
-    text: "Uw klant vergelijkt drie klusbedrijven. Twee hebben een standaard template, één heeft een cinematische 3D-website die het vakwerk laat zien. Wie wordt er gebeld? Beweging en 3D worden ingezet met een doel: vertrouwen wekken en uw verhaal vertellen.",
+    title: 'Een website die uw vakwerk laat zien',
+    text: "Uw klant vergelijkt drie bedrijven. Twee hebben een standaard template, één laat woningrenovatie, timmerwerk en badkamer- en sanitairrenovatie in beeld zien met rustige 3D en beweging. Wie wordt er gebeld? Elk project krijgt de ruimte: vóór en ná, materiaal en afwerking.",
   },
   {
     no: '02',
     tag: 'Online agenda & chatbot',
-    title: 'Afspraken plannen zichzelf in',
-    text: 'Een live chatbot beantwoordt vragen van bezoekers — ook om 22:00 uur — en plant afspraken direct in uw online agenda. De klant ontvangt automatisch een bevestiging én een herinnering. U mist geen aanvraag meer, ook niet vanaf de steiger.',
+    title: 'Offerte-afspraken plannen zichzelf in',
+    text: 'Een live chatbot beantwoordt vragen over schilderwerk, stucwerk of een verbouwing — ook om 22:00 uur — en plant de offerte-afspraak direct in uw online agenda. De klant ontvangt automatisch een bevestiging én een herinnering. U mist geen aanvraag meer, ook niet vanaf de steiger.',
   },
   {
     no: '03',
     tag: 'SEO met resultaat',
     title: 'Gevonden worden door de juiste klant',
-    text: "Mooi zijn is niet genoeg; uw website moet gevonden worden. Schone code, snelle laadtijden en teksten rond de zoekwoorden waarmee uw klant écht zoekt — 'badkamer renoveren Apeldoorn', niet 'totaaloplossingen'. SEO die daadwerkelijk klanten oplevert.",
+    text: "Mooi zijn is niet genoeg; uw website moet gevonden worden. Schone code, snelle laadtijden en teksten rond de zoekwoorden waarmee uw klant écht zoekt: 'badkamer renoveren', 'binnen- en buitenschilderwerk', 'stukadoor prijs per m²', 'kozijnen houtrot herstellen', 'gevelwerk'. SEO die daadwerkelijk klussen oplevert.",
   },
 ]
 

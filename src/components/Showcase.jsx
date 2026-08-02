@@ -32,11 +32,18 @@ export default function Showcase() {
             <span className="absolute inset-0 bg-gradient-to-t from-night/70 to-transparent" />
           </a>
           <div className="flex flex-col justify-center gap-5 p-8 md:p-12">
-            <p className="text-[0.68rem] uppercase tracking-[0.25em] text-blue">Klusbedrijf · 3D-website met agenda</p>
+            <p className="text-[0.68rem] uppercase tracking-[0.25em] text-amber">Klusbedrijf · 3D-website met agenda</p>
             <h3 className="font-display text-3xl">Klusbedrijf De Zegen</h3>
             <p className="lead">
-              Een 3D-website voor een klusbedrijf: een interactief huis dat meebeweegt met de scroll, duidelijke diensten en een aanvraagroute die direct in de agenda binnenkomt. Precies wat u hier op deze pagina ziet — maar dan voor úw bedrijf.
+              Een 3D-website voor een klusbedrijf: een interactief huis dat meebeweegt met de scroll, duidelijke dienstenpagina's en een aanvraagroute die direct in de agenda binnenkomt. Precies wat u hier op deze pagina ziet — maar dan voor úw bedrijf.
             </p>
+            <div className="flex flex-wrap gap-2">
+              {['Woningrenovatie', 'Schilderwerk', 'Badkamerrenovatie', 'Timmerwerk', 'Stucwerk'].map((t) => (
+                <span key={t} className="rounded-full border border-amber/20 px-3.5 py-1.5 text-[0.75rem] text-muted">
+                  {t}
+                </span>
+              ))}
+            </div>
             <div className="flex flex-wrap items-center gap-4 pt-2">
               <a
                 href="https://vmstudios053.github.io/klusbedrijf-de-zegen-3d/"

@@ -6,6 +6,7 @@ import BackgroundDirector from './components/BackgroundDirector.jsx'
 import Navbar from './components/Navbar.jsx'
 import ChapterHUD from './components/ChapterHUD.jsx'
 import Hero from './components/Hero.jsx'
+import TradeStrip from './components/TradeStrip.jsx'
 import Features from './components/Features.jsx'
 import Journey3D from './components/Journey3D.jsx'
 import BookingDemo from './components/BookingDemo.jsx'
@@ -39,6 +40,7 @@ export default function App() {
       <ChapterHUD />
       <main className="relative z-10">
         <Hero />
+        <TradeStrip />
         <Features />
         <Journey3D />
         <BookingDemo />
