@@ -1,0 +1,26 @@
+{
+ "keyframes": {
+  "kf1": "71e9c51c-52dd-448b-b110-8b5bbad6d69c",
+  "kf2": "0415ee28-7a13-4e1f-9c05-eb9c135ce1b6",
+  "kf3": "ccf259aa-b844-4c69-a633-b3202c956664",
+  "kf4": "6b2e0086-57fb-48cd-a6fc-68d0802ad1b7",
+  "kf5": "1d86e2f1-7de0-4fab-bfc7-c67a6fec2bda",
+  "kf6": "4e2e40f4-4677-4d82-b1e7-edf9f8ac1882"
+ },
+ "drafts": {
+  "clip1-kaal": "bb09defd-2d7b-4a50-94f4-8f284155b8ed"
+ },
+ "masters": {},
+ "keyframe_urls": {
+  "kf1": "https://d8j0ntlcm91z4.cloudfront.net/user_3DVV7Cer2MBLBVMFwP2BdkJfIgk/hf_20260806_093734_71e9c51c-52dd-448b-b110-8b5bbad6d69c.png",
+  "kf2": "https://d8j0ntlcm91z4.cloudfront.net/user_3DVV7Cer2MBLBVMFwP2BdkJfIgk/hf_20260806_094033_0415ee28-7a13-4e1f-9c05-eb9c135ce1b6.png",
+  "kf3": "https://d8j0ntlcm91z4.cloudfront.net/user_3DVV7Cer2MBLBVMFwP2BdkJfIgk/hf_20260806_095946_ccf259aa-b844-4c69-a633-b3202c956664.png",
+  "kf4": "https://d8j0ntlcm91z4.cloudfront.net/user_3DVV7Cer2MBLBVMFwP2BdkJfIgk/hf_20260806_100137_6b2e0086-57fb-48cd-a6fc-68d0802ad1b7.png",
+  "kf5": "https://d8j0ntlcm91z4.cloudfront.net/user_3DVV7Cer2MBLBVMFwP2BdkJfIgk/hf_20260806_100535_1d86e2f1-7de0-4fab-bfc7-c67a6fec2bda.png",
+  "kf6": "https://d8j0ntlcm91z4.cloudfront.net/user_3DVV7Cer2MBLBVMFwP2BdkJfIgk/hf_20260806_101258_4e2e40f4-4677-4d82-b1e7-edf9f8ac1882.png"
+ },
+ "draft_urls": {
+  "clip1-kaal": "https://d8j0ntlcm91z4.cloudfront.net/user_3DVV7Cer2MBLBVMFwP2BdkJfIgk/hf_20260806_101654_bb09defd-2d7b-4a50-94f4-8f284155b8ed.mp4"
+ },
+ "status": "PAUSED by user 2026-08-06. Nothing in flight. No unspent commitments."
+}
