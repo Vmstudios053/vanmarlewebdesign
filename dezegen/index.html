@@ -1,0 +1,600 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Klusbedrijf De Zegen — schilderwerk, stucwerk, vloeren en behang uit De Lutte</title>
+<meta name="description" content="Klusbedrijf De Zegen uit De Lutte verzorgt schilderwerk, stucwerk, vloeren en behangwerk in heel Twente. Vakmanschap, heldere afspraken, opgeruimd opgeleverd.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%232A5CBE'/><rect x='5' y='13' width='22' height='6' rx='3' fill='%23F7F5F0'/><circle cx='16' cy='16' r='2' fill='%232A5CBE'/></svg>">
+
+<style>
+@font-face{font-family:'Bricolage';src:url('assets/fonts/bricolage-grotesque-latin-wght-normal.woff2') format('woff2-variations');font-weight:200 800;font-display:swap}
+@font-face{font-family:'Figtree';src:url('assets/fonts/figtree-latin-wght-normal.woff2') format('woff2-variations');font-weight:300 900;font-display:swap}
+
+:root{
+  --paper:#F7F5F0; --stuc:#E8E5DE; --sky:#DCE9F7;
+  --blue:#2A5CBE; --blue-deep:#1C4390; --ink:#11203A; --muted:#5C6879;
+  --oak:#C08A4E; --seam:#CA9E69;
+  --display:'Bricolage',ui-sans-serif,system-ui,sans-serif;
+  --body:'Figtree',ui-sans-serif,system-ui,sans-serif;
+  --ease:cubic-bezier(.22,.61,.36,1);
+  --pad:clamp(20px,5vw,72px);
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);
+  font-weight:400;line-height:1.55;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img,svg{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3{font-family:var(--display);font-weight:600;line-height:.98;letter-spacing:-.025em;margin:0}
+
+/* ============ header ============ */
+.hdr{position:fixed;inset:0 0 auto 0;z-index:40;display:flex;align-items:center;
+  justify-content:space-between;gap:16px;padding:18px var(--pad);color:#fff;
+  transition:color .45s var(--ease)}
+.hdr::before{content:"";position:absolute;inset:0 0 auto 0;height:210%;z-index:-1;pointer-events:none;
+  background:linear-gradient(to bottom,rgba(9,16,30,.55),rgba(9,16,30,0));
+  transition:opacity .45s var(--ease)}
+.hdr.on-light{color:var(--ink);background:rgba(247,245,240,.86);
+  backdrop-filter:saturate(1.4) blur(14px);-webkit-backdrop-filter:saturate(1.4) blur(14px);
+  box-shadow:0 1px 0 rgba(17,32,58,.09)}
+.hdr.on-light::before{opacity:0}
+/* over the dark closing section the chrome keeps its light treatment but loses the scrim */
+.hdr.on-dark::before{opacity:0}
+.lock{display:flex;align-items:center;gap:11px;text-decoration:none}
+.mark{width:34px;height:34px;flex:none;filter:drop-shadow(0 1px 8px rgba(0,0,0,.42));
+  transition:filter .45s var(--ease)}
+.hdr.on-light .mark{filter:none}
+.wordmark{font-family:var(--display);font-weight:700;font-size:17px;letter-spacing:.11em;
+  text-transform:uppercase;text-shadow:0 1px 18px rgba(0,0,0,.5);transition:text-shadow .45s var(--ease)}
+.hdr.on-light .wordmark{text-shadow:none}
+.sub{display:block;font-family:var(--body);font-size:9.5px;font-weight:600;letter-spacing:.2em;
+  opacity:.72;margin-top:2px}
+.hdr .cta{font-size:13.5px;font-weight:700;letter-spacing:.03em;text-decoration:none;
+  padding:10px 19px;border-radius:999px;border:1.5px solid currentColor;white-space:nowrap;
+  transition:background .3s var(--ease),color .3s var(--ease)}
+.hdr .cta:hover{background:currentColor}
+.hdr .cta:hover span{color:var(--paper);mix-blend-mode:normal}
+.hdr.on-light .cta:hover span{color:var(--paper)}
+@media(max-width:560px){.hdr .cta{display:none}.wordmark{font-size:15px}}
+
+/* ============ film ============ */
+.film{position:relative;height:850vh}
+.stage{position:sticky;top:0;height:100vh;overflow:hidden;background:#6E6A66}
+#c{position:absolute;inset:0;width:100%;height:100%;display:block}
+.grain{position:absolute;inset:0;pointer-events:none;opacity:.5;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='.34'/%3E%3C/svg%3E")}
+.vig{position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(122% 96% at 50% 44%,transparent 42%,rgba(10,16,28,.5) 100%)}
+.hand{position:absolute;inset:auto 0 0 0;height:34vh;pointer-events:none;opacity:0;
+  background:linear-gradient(to bottom,transparent,var(--seam))}
+#dust{position:absolute;inset:0;pointer-events:none}
+
+.beats{position:absolute;inset:0;pointer-events:none}
+.beat{position:absolute;left:var(--pad);right:var(--pad);max-width:min(760px,64vw);
+  opacity:0;will-change:opacity,transform;color:#fff}
+.beat::before{content:"";position:absolute;z-index:-1;inset:-90% -30% -90% -18%;
+  background:radial-gradient(58% 56% at 26% 50%,rgba(8,14,26,.66),rgba(8,14,26,.34) 46%,transparent 76%)}
+.beat h2{font-size:clamp(30px,5.1vw,62px);text-shadow:0 2px 34px rgba(6,12,24,.5)}
+.beat p{margin:.7em 0 0;font-size:clamp(15px,1.5vw,19px);font-weight:450;max-width:34em;
+  color:rgba(255,255,255,.9);text-shadow:0 1px 20px rgba(6,12,24,.6)}
+.b-hero{top:50%;transform:translateY(-50%)}
+.b-hero h1{font-size:clamp(42px,8.6vw,116px);font-weight:700;text-shadow:0 3px 44px rgba(6,12,24,.5)}
+.b-hero .kicker{font-family:var(--body);font-size:clamp(11px,1.3vw,13px);font-weight:700;
+  letter-spacing:.28em;text-transform:uppercase;margin:0 0 1.2em;color:rgba(255,255,255,.88)}
+.b-mid{top:50%;transform:translateY(-50%)}
+.b-end{bottom:16vh}
+@media(max-width:760px){.beat{max-width:none}}
+
+.readout{position:absolute;left:var(--pad);bottom:26px;right:var(--pad);z-index:5;
+  display:flex;align-items:center;gap:14px;color:#fff;pointer-events:none}
+.readout .ch{font-family:var(--display);font-size:11.5px;font-weight:700;letter-spacing:.26em;
+  text-transform:uppercase;white-space:nowrap;text-shadow:0 1px 14px rgba(0,0,0,.6)}
+.bar{position:relative;flex:1;height:1.5px;background:rgba(255,255,255,.3);max-width:340px}
+.bar i{position:absolute;inset:0 auto 0 0;width:0;background:#fff;display:block}
+.readout .pct{font-size:11px;font-weight:700;letter-spacing:.12em;opacity:.8;
+  font-variant-numeric:tabular-nums;text-shadow:0 1px 14px rgba(0,0,0,.6)}
+
+.loader{position:absolute;inset:0;z-index:20;display:grid;place-items:center;
+  background:#6E6A66;transition:opacity .7s var(--ease)}
+.loader.gone{opacity:0;pointer-events:none}
+.loader .lb{width:min(220px,42vw);height:2px;background:rgba(255,255,255,.24)}
+.loader .lb i{display:block;height:100%;width:0;background:#fff;transition:width .25s linear}
+
+/* ============ content ============ */
+.after{position:relative;z-index:2;
+  background:linear-gradient(to bottom,var(--seam) 0,#E6D4BC 9vh,var(--paper) 34vh)}
+.section{min-height:min(84vh,860px);display:flex;align-items:center;padding:9vh var(--pad)}
+.wrap{width:100%;max-width:1180px;margin:0 auto}
+.section .wrap>*{opacity:0;transform:translateY(26px);
+  transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.section.in .wrap>*{opacity:1;transform:none}
+.section.in .wrap>*:nth-child(2){transition-delay:.09s}
+.section.in .wrap>*:nth-child(3){transition-delay:.18s}
+.section.in .wrap>*:nth-child(4){transition-delay:.27s}
+.eyebrow{font-size:11.5px;font-weight:800;letter-spacing:.26em;text-transform:uppercase;
+  color:var(--blue);margin:0 0 1.6em}
+h2{font-size:clamp(34px,6vw,80px)}
+.lead{font-size:clamp(17px,1.9vw,22px);color:var(--muted);max-width:36em;margin:1.1em 0 0;font-weight:450}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(248px,1fr));gap:1px;
+  background:rgba(17,32,58,.13);border:1px solid rgba(17,32,58,.13);margin-top:clamp(38px,6vw,68px)}
+.card{background:var(--paper);padding:clamp(26px,3.2vw,40px);display:flex;flex-direction:column;gap:12px;
+  transition:background .4s var(--ease)}
+.card:hover{background:#fff}
+.card .n{font-family:var(--display);font-size:12px;font-weight:700;letter-spacing:.2em;color:var(--blue)}
+.card h3{font-size:clamp(21px,2.3vw,27px)}
+.card p{margin:0;color:var(--muted);font-size:15.5px}
+
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+  gap:clamp(26px,3.4vw,48px);margin-top:clamp(38px,6vw,64px)}
+.step{border-top:2px solid var(--ink);padding-top:18px}
+.step .k{font-family:var(--display);font-size:clamp(30px,3.6vw,44px);font-weight:700;
+  color:var(--blue);line-height:1;display:block;margin-bottom:10px}
+.step h3{font-size:18.5px;margin-bottom:7px}
+.step p{margin:0;color:var(--muted);font-size:15px}
+
+.close{background:var(--ink);color:var(--paper)}
+.close .eyebrow{color:#8FB2F0}
+.close h2{max-width:15em}
+.close .lead{color:rgba(247,245,240,.72)}
+.actions{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin-top:clamp(34px,4.6vw,52px)}
+.btn{position:relative;overflow:hidden;display:inline-flex;align-items:center;gap:12px;
+  text-decoration:none;font-weight:800;font-size:16.5px;letter-spacing:.01em;
+  padding:19px 34px;border-radius:999px;background:var(--blue);color:#fff;
+  box-shadow:0 6px 30px rgba(42,92,190,.42);
+  transition:transform .22s var(--ease),box-shadow .3s var(--ease),background .3s var(--ease)}
+.btn::after{content:"";position:absolute;inset:0;transform:translateX(-102%);
+  background:linear-gradient(100deg,transparent,rgba(255,255,255,.32),transparent);
+  transition:transform .62s var(--ease)}
+.btn:hover{background:var(--blue-deep);box-shadow:0 10px 40px rgba(42,92,190,.55)}
+.btn:hover::after{transform:translateX(102%)}
+.btn:active{transform:translateY(2px)}
+.btn .ar{font-size:19px;line-height:1}
+.btn-ghost{background:transparent;color:var(--paper);border:1.5px solid rgba(247,245,240,.34);
+  box-shadow:none;font-weight:700}
+.btn-ghost:hover{background:rgba(247,245,240,.1);border-color:var(--paper);box-shadow:none}
+
+.foot{border-top:1px solid rgba(247,245,240,.16);margin-top:clamp(52px,7vw,86px);
+  padding-top:30px;display:flex;flex-wrap:wrap;gap:22px 40px;justify-content:space-between;
+  font-size:13.5px;color:rgba(247,245,240,.6)}
+.foot b{display:block;color:var(--paper);font-weight:700;letter-spacing:.16em;
+  text-transform:uppercase;font-size:11px;margin-bottom:7px}
+
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition-duration:.01ms!important}
+  .section .wrap>*{opacity:1;transform:none}
+}
+</style>
+
+<header class="hdr" id="hdr">
+  <a class="lock" href="#top" aria-label="Klusbedrijf De Zegen">
+    <svg class="mark" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+      <rect x="1.4" y="1.4" width="37.2" height="37.2" rx="9" stroke="currentColor" stroke-width="2.2"/>
+      <rect x="7.5" y="16.4" width="25" height="7.2" rx="3.6" stroke="currentColor" stroke-width="2.2"/>
+      <circle cx="20" cy="20" r="2.5" fill="currentColor"/>
+      <path d="M14.6 20h1.9M23.5 20h1.9" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+    </svg>
+    <span class="wordmark">De&nbsp;Zegen<span class="sub">Klusbedrijf · De Lutte</span></span>
+  </a>
+  <a class="cta" href="#offerte"><span>Offerte aanvragen</span></a>
+</header>
+
+<main id="top">
+  <section class="film" id="film">
+    <div class="stage">
+      <canvas id="c"></canvas>
+      <canvas id="dust"></canvas>
+      <div class="vig"></div>
+      <div class="grain"></div>
+      <div class="hand" id="hand"></div>
+
+      <div class="beats" id="beats">
+        <div class="beat b-hero" data-in="-0.1" data-peak="0" data-out="0.095">
+          <p class="kicker">Schilderwerk · Stucwerk · Vloeren · Behang</p>
+          <h1>Van kaal<br>naar thuis</h1>
+          <p>Klusbedrijf De Zegen verbouwt woningen in De Lutte en heel Twente. Eén ploeg, van de eerste kale muur tot de laatste plint.</p>
+        </div>
+        <div class="beat b-mid" data-in="0.11" data-peak="0.16" data-out="0.235">
+          <h2>Elk huis begint<br>een keer opnieuw</h2>
+          <p>Wij halen weg wat weg moet en sparen wat blijft. Netjes afgeschermd, zonder stof door de rest van uw huis.</p>
+        </div>
+        <div class="beat b-mid" data-in="0.29" data-peak="0.35" data-out="0.425">
+          <h2>Strak stucwerk<br>is geen laagje</h2>
+          <p>Het is de basis waar al het andere op rust. Wanden en plafonds vlak en zonder golven, klaar voor verf of behang.</p>
+        </div>
+        <div class="beat b-mid" data-in="0.485" data-peak="0.545" data-out="0.625">
+          <h2>Uw kleur, precies<br>zoals u hem bedoelde</h2>
+          <p>Duurzame verf, egaal opgezet, strak in de naad. Binnen en buiten, met een garantie die we ook echt nakomen.</p>
+        </div>
+        <div class="beat b-mid" data-in="0.675" data-peak="0.735" data-out="0.815">
+          <h2>Behang, plinten,<br>vloer</h2>
+          <p>Het werk dat pas opvalt als het niet klopt. Daarom meten we twee keer en leggen we één keer.</p>
+        </div>
+        <div class="beat b-end" data-in="0.87" data-peak="0.945" data-out="2">
+          <h2>En dan is het<br>weer van u</h2>
+          <p>Opgeruimd opgeleverd, op de dag die we beloofden. Dat is waarom klanten ons een 9,1 geven.</p>
+        </div>
+      </div>
+
+      <div class="readout" aria-hidden="true">
+        <span class="ch" id="chapter">Kaal</span>
+        <span class="bar"><i id="barfill"></i></span>
+        <span class="pct" id="pct">00%</span>
+      </div>
+
+      <div class="loader" id="loader"><span class="lb"><i id="lbf"></i></span></div>
+    </div>
+  </section>
+
+  <div class="after">
+    <section class="section" id="diensten" data-chrome="light">
+      <div class="wrap">
+        <p class="eyebrow">Wat we doen</p>
+        <h2>Vier ambachten,<br>één vaste ploeg</h2>
+        <p class="lead">Geen onderaannemers die elkaar niet kennen. Dezelfde mensen die uw muren stucen, zetten ze ook in de verf — dat scheelt fouten, wachttijd en gedoe.</p>
+        <div class="grid">
+          <article class="card">
+            <span class="n">01</span>
+            <h3>Schilderwerk</h3>
+            <p>Binnen en buiten. Kozijnen, wanden, plafonds en houtwerk, met verf die tegen een Twentse winter kan.</p>
+          </article>
+          <article class="card">
+            <span class="n">02</span>
+            <h3>Stucwerk</h3>
+            <p>Glad pleisterwerk, sierpleister en spachtelputz. Vlakke wanden en plafonds als ondergrond voor alles wat erna komt.</p>
+          </article>
+          <article class="card">
+            <span class="n">03</span>
+            <h3>Vloeren</h3>
+            <p>Leggen van laminaat, PVC en houten vloeren, inclusief egaliseren van de ondervloer en de plinten eromheen.</p>
+          </article>
+          <article class="card">
+            <span class="n">04</span>
+            <h3>Behangwerk</h3>
+            <p>Van glasvlies tot fotobehang. Strakke naden, kloppende patronen en muren die er eerst goed voor zijn gemaakt.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="werkwijze" data-chrome="light">
+      <div class="wrap">
+        <p class="eyebrow">Zo werkt het</p>
+        <h2>Heldere afspraken,<br>geen verrassingen</h2>
+        <div class="steps">
+          <div class="step">
+            <span class="k">01</span>
+            <h3>Kennismaking</h3>
+            <p>We komen langs, kijken mee en luisteren naar wat u voor ogen heeft.</p>
+          </div>
+          <div class="step">
+            <span class="k">02</span>
+            <h3>Vaste prijs</h3>
+            <p>Een offerte die uitlegt wat u krijgt, wat het kost en wanneer we klaar zijn.</p>
+          </div>
+          <div class="step">
+            <span class="k">03</span>
+            <h3>Uitvoering</h3>
+            <p>Wij schermen af, werken door en houden u onderweg op de hoogte.</p>
+          </div>
+          <div class="step">
+            <span class="k">04</span>
+            <h3>Oplevering</h3>
+            <p>We lopen het samen na en nemen ons eigen afval weer mee.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section close" id="offerte" data-chrome="dark">
+      <div class="wrap">
+        <p class="eyebrow">Aan de slag</p>
+        <h2>Vertel wat u wilt laten doen</h2>
+        <p class="lead">Vrijblijvend, en u weet binnen een week waar u aan toe bent. Ook voor één kamer of een enkele klus.</p>
+        <div class="actions">
+          <a class="btn" href="https://www.klusbedrijfdezegen.nl"><span>Offerte aanvragen</span><span class="ar">→</span></a>
+          <a class="btn btn-ghost" href="https://www.klusbedrijfdezegen.nl">Bekijk ons werk</a>
+        </div>
+        <div class="foot">
+          <div><b>Werkgebied</b>De Lutte, Losser, Oldenzaal<br>en heel Twente</div>
+          <div><b>Waardering</b>9,1 gemiddeld<br>op basis van klantreviews</div>
+          <div><b>Kvk</b>95533389<br>Klusbedrijf De Zegen</div>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<script src="assets/vendor/lenis.min.js"></script>
+<script>
+(function(){
+  "use strict";
+  var FRAME_COUNT = 601, FPS = 24;
+  var SRC = function(i){ return "frames/f_" + String(i+1).padStart(4,"0") + ".jpg"; };
+  var CHAPTERS = ["Kaal","Stuc","Verf","Afwerking","Thuis"];
+
+  var REDUCED = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var JUMP = new URLSearchParams(location.search).get("jump");
+  if (JUMP !== null) history.scrollRestoration = "manual";
+
+  var cv = document.getElementById("c"), ctx = cv.getContext("2d", {alpha:false});
+  var filmEl = document.getElementById("film"), hdr = document.getElementById("hdr");
+  var handEl = document.getElementById("hand"), loader = document.getElementById("loader");
+  var lbf = document.getElementById("lbf"), barfill = document.getElementById("barfill");
+  var chapterEl = document.getElementById("chapter"), pctEl = document.getElementById("pct");
+
+  /* ---------- frame store: images + an ImageBitmap window around the playhead ---------- */
+  var images = new Array(FRAME_COUNT), loaded = new Array(FRAME_COUNT);
+  var bitmaps = new Map(), decoding = new Set(), bmpCenter = -9999;
+  var AHEAD = Math.round(FPS * 2.0), KEEP = Math.round(FPS * 1.3) + AHEAD;
+
+  function ensureBitmaps(center){
+    if (Math.abs(center - bmpCenter) < 3) return;
+    bmpCenter = center;
+    var lo = Math.max(0, center - Math.round(FPS*1.3)), hi = Math.min(FRAME_COUNT-1, center + AHEAD);
+    for (var i = lo; i <= hi; i++){
+      if (bitmaps.has(i) || decoding.has(i) || !loaded[i]) continue;
+      (function(i){
+        decoding.add(i);
+        createImageBitmap(images[i]).then(function(b){
+          decoding.delete(i);
+          if (Math.abs(i - bmpCenter) > KEEP){ b.close(); return; }
+          bitmaps.set(i, b);
+          if (i === shown) draw(i);
+        }).catch(function(){ decoding.delete(i); });
+      })(i);
+    }
+    bitmaps.forEach(function(b,k){
+      if (k < center - KEEP || k > center + KEEP){ b.close(); bitmaps.delete(k); }
+    });
+  }
+
+  /* ---------- concurrency-capped loading pump ---------- */
+  var next = 0, inFlight = 0, done = 0, MAX_FLIGHT = 12, PRIME = 90, primed = false;
+  function pump(){
+    while (inFlight < MAX_FLIGHT && next < FRAME_COUNT){
+      (function(i){
+        next++; inFlight++;
+        var im = new Image();
+        im.decoding = "async";
+        im.onload = function(){
+          images[i] = im; loaded[i] = 1; done++; inFlight--;
+          if (!primed && done >= PRIME){ primed = true; startFilm(); }
+          lbf.style.width = Math.min(100, done/PRIME*100) + "%";
+          pump();
+        };
+        im.onerror = function(){ done++; inFlight--; pump(); };
+        im.src = SRC(i);
+      })(next);
+    }
+  }
+
+  function nearest(i){
+    if (loaded[i]) return i;
+    for (var r = 1; r < FRAME_COUNT; r++){
+      if (i-r >= 0 && loaded[i-r]) return i-r;
+      if (i+r < FRAME_COUNT && loaded[i+r]) return i+r;
+    }
+    return -1;
+  }
+
+  /* ---------- canvas sizing: cap DPR at 1, match the source width ---------- */
+  function resize(){
+    var d = Math.min(devicePixelRatio || 1, 1);
+    cv.width  = Math.round(innerWidth * d);
+    cv.height = Math.round(innerHeight * d);
+    bmpCenter = -9999;
+    draw(shown);
+  }
+
+  var MAX_CROP = 0.22;
+  function paint(src, w, h){
+    var cw = cv.width, ch = cv.height;
+    var cover = Math.max(cw/w, ch/h);
+    var crop = 1 - Math.min(cw/(w*cover), ch/(h*cover));
+    var s = crop > MAX_CROP ? Math.min(cw/w, ch/h) : cover;
+    var dw = w*s, dh = h*s;
+    // Letterboxing a 16:9 film into a portrait viewport leaves dead bands. Fill them
+    // with a blurred, dimmed continuation of the same frame so the film still owns
+    // the whole screen. Replace this with a real 9:16 pass when one exists.
+    if (dw < cw - 1 || dh < ch - 1){
+      var bw = w*cover, bh = h*cover;
+      ctx.save();
+      ctx.filter = "blur(26px) brightness(.62) saturate(.85)";
+      ctx.drawImage(src, (cw-bw)/2, (ch-bh)/2, bw, bh);
+      ctx.restore();
+    }
+    ctx.drawImage(src, (cw-dw)/2, (ch-dh)/2, dw, dh);
+  }
+
+  var shown = -1;
+  function draw(idx){
+    if (idx < 0) return;
+    var bm = bitmaps.get(idx);
+    if (bm){ paint(bm, bm.width, bm.height); shown = idx; return; }
+    var n = nearest(idx);
+    if (n < 0) return;
+    var im = images[n];
+    paint(im, im.naturalWidth, im.naturalHeight);
+    shown = idx;
+  }
+
+  /* ---------- header luminance sampling over the film ---------- */
+  var probe = document.createElement("canvas"); probe.width = 16; probe.height = 4;
+  var pctx = probe.getContext("2d", {willReadFrequently:true});
+  var lastProbe = 0;
+  var chromeSections = [].slice.call(document.querySelectorAll("[data-chrome]"));
+
+  function setChrome(light, dark){
+    hdr.classList.toggle("on-light", light);
+    hdr.classList.toggle("on-dark", dark);
+  }
+
+  /* Over the film the only truthful source is the pixels themselves. Past the film
+     the canvas is gone, so the section currently crossing the header decides. */
+  function sampleHeader(now){
+    if (now - lastProbe < 180) return;
+    lastProbe = now;
+    if (filmEl.getBoundingClientRect().bottom > 64){
+      if (shown < 0) return;
+      try{
+        pctx.drawImage(cv, 0, 0, cv.width, Math.max(1, cv.height*0.14), 0, 0, 16, 4);
+        var d = pctx.getImageData(0,0,16,4).data, sum = 0;
+        for (var i = 0; i < d.length; i += 4) sum += 0.2126*d[i] + 0.7152*d[i+1] + 0.0722*d[i+2];
+        setChrome((sum/(d.length/4)) > 138, false);
+      }catch(e){}
+      return;
+    }
+    for (var j = 0; j < chromeSections.length; j++){
+      var r = chromeSections[j].getBoundingClientRect();
+      if (r.top <= 46 && r.bottom > 46){
+        var isDark = chromeSections[j].dataset.chrome === "dark";
+        setChrome(!isDark, isDark);
+        return;
+      }
+    }
+    setChrome(true, false);
+  }
+
+  /* ---------- beats ---------- */
+  var beats = [].map.call(document.querySelectorAll(".beat"), function(el){
+    return { el: el,
+      i: parseFloat(el.dataset.in), pk: parseFloat(el.dataset.peak), o: parseFloat(el.dataset.out),
+      base: el.classList.contains("b-end") ? 0 : -50, a: -1 };
+  });
+  function beatAlpha(b, p){
+    if (p < b.i || p > b.o) return 0;
+    if (p < b.pk) return (p - b.i) / Math.max(1e-4, b.pk - b.i);
+    if (b.o > 1.5) return 1;
+    return 1 - (p - b.pk) / Math.max(1e-4, b.o - b.pk);
+  }
+
+  /* ---------- progress + tick ---------- */
+  var target = 0, cur = 0, progress = 0;
+  function measure(){
+    var r = filmEl.getBoundingClientRect();
+    progress = Math.max(0, Math.min(1, -r.top / (r.height - innerHeight)));
+    target = progress * (FRAME_COUNT - 1);
+  }
+
+  var lastT = 0, worst = 0;
+  function tick(now){
+    requestAnimationFrame(tick);
+    if (lastT){ var dt = now - lastT; if (dt > worst) worst = dt; }
+    lastT = now;
+
+    measure();
+    cur += (target - cur) * (REDUCED ? 1 : 0.14);
+    if (Math.abs(target - cur) < 0.02) cur = target;
+    var idx = Math.round(cur);
+    ensureBitmaps(idx);
+    if (idx !== shown) draw(idx);
+    sampleHeader(now);
+
+    for (var i = 0; i < beats.length; i++){
+      var b = beats[i], a = beatAlpha(b, progress);
+      if (Math.abs(a - b.a) < 0.004) continue;
+      b.a = a;
+      b.el.style.opacity = a;
+      b.el.style.transform = (b.base ? "translateY(" + b.base + "%)" : "") +
+        " translateY(" + ((1-a) * 16).toFixed(2) + "px)";
+    }
+
+    var ci = Math.min(CHAPTERS.length-1, Math.floor(progress * CHAPTERS.length));
+    if (chapterEl.textContent !== CHAPTERS[ci]) chapterEl.textContent = CHAPTERS[ci];
+    barfill.style.width = (progress*100).toFixed(1) + "%";
+    pctEl.textContent = String(Math.round(progress*100)).padStart(2,"0") + "%";
+    handEl.style.opacity = Math.max(0, (progress - 0.92) / 0.08);
+    if (dust.alive) dust.step(progress);
+  }
+
+  /* ---------- dust motes over the opening ---------- */
+  var dust = (function(){
+    var el = document.getElementById("dust"), c = el.getContext("2d");
+    var api = { alive: !REDUCED, step: function(){} };
+    if (!api.alive){ el.style.display = "none"; return api; }
+    var sprite = document.createElement("canvas"); sprite.width = sprite.height = 32;
+    var sc = sprite.getContext("2d");
+    var g = sc.createRadialGradient(16,16,0,16,16,16);
+    g.addColorStop(0,"rgba(255,252,244,.95)"); g.addColorStop(1,"rgba(255,252,244,0)");
+    sc.fillStyle = g; sc.fillRect(0,0,32,32);
+    var ps = [], N = 46;
+    function reset(){
+      el.width = innerWidth; el.height = innerHeight;
+      ps = [];
+      for (var i = 0; i < N; i++) ps.push({
+        x: Math.random()*innerWidth, y: Math.random()*innerHeight,
+        z: 0.35 + Math.random()*0.9, vy: -0.09 - Math.random()*0.2,
+        vx: (Math.random()-0.5)*0.16, ph: Math.random()*6.28
+      });
+    }
+    reset(); addEventListener("resize", reset, {passive:true});
+    api.step = function(p){
+      var fade = Math.max(0, 1 - p/0.07);
+      if (fade <= 0){ if (api.on){ c.clearRect(0,0,el.width,el.height); api.on = false; } return; }
+      api.on = true;
+      c.clearRect(0,0,el.width,el.height);
+      var t = performance.now()*0.001;
+      for (var i = 0; i < ps.length; i++){
+        var q = ps[i];
+        q.y += q.vy; q.x += q.vx;
+        if (q.y < -20){ q.y = el.height + 10; q.x = Math.random()*el.width; }
+        var s = 5 + q.z*9;
+        c.globalAlpha = fade * (0.16 + 0.3*q.z) * (0.62 + 0.38*Math.sin(t*1.5 + q.ph));
+        c.drawImage(sprite, q.x, q.y, s, s);
+      }
+      c.globalAlpha = 1;
+    };
+    return api;
+  })();
+
+  /* ---------- arrival motion for the sections ---------- */
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if (e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); } });
+  }, { rootMargin:"0px 0px -12% 0px", threshold:0.12 });
+  document.querySelectorAll(".section").forEach(function(s){ io.observe(s); });
+
+  /* ---------- boot ---------- */
+  function startFilm(){
+    loader.classList.add("gone");
+    resize();
+    ensureBitmaps(0);
+    measure(); cur = target; draw(Math.round(cur));
+  }
+
+  addEventListener("resize", resize, {passive:true});
+  pump();
+  requestAnimationFrame(tick);
+
+  if (!REDUCED && JUMP === null && typeof Lenis === "function"){
+    var lenis = new Lenis({ lerp: 0.09, smoothWheel: true });
+    requestAnimationFrame(function raf(t){ lenis.raf(t); requestAnimationFrame(raf); });
+  }
+
+  /* dev contract: land pre-scrolled with everything settled, then flag readiness */
+  function settle(){
+    if (JUMP !== null){
+      scrollTo(0, parseFloat(JUMP) || 0);
+      measure(); cur = target;
+      ensureBitmaps(Math.round(cur)); draw(Math.round(cur));
+      for (var i = 0; i < beats.length; i++){
+        var b = beats[i], a = beatAlpha(b, progress);
+        b.a = a; b.el.style.opacity = a;
+        b.el.style.transform = (b.base ? "translateY(" + b.base + "%)" : "");
+      }
+      document.querySelectorAll(".section").forEach(function(s){ s.classList.add("in"); });
+      sampleHeader(1e9);
+    }
+    window.__ready = true;
+  }
+
+  var waited = 0;
+  (function waitFrames(){
+    if (done >= PRIME || waited > 150){ setTimeout(settle, 260); return; }
+    waited++; setTimeout(waitFrames, 40);
+  })();
+
+  setInterval(function(){
+    if (worst > 50) console.warn("[jank] worst rAF delta " + worst.toFixed(1) + "ms");
+    worst = 0;
+  }, 2000);
+})();
+</script>

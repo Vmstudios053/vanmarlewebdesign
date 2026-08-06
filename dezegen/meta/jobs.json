@@ -1,0 +1,35 @@
+{
+ "keyframes": {
+  "kf1": "71e9c51c-52dd-448b-b110-8b5bbad6d69c",
+  "kf2": "0415ee28-7a13-4e1f-9c05-eb9c135ce1b6",
+  "kf3": "ccf259aa-b844-4c69-a633-b3202c956664",
+  "kf4": "6b2e0086-57fb-48cd-a6fc-68d0802ad1b7",
+  "kf5": "1d86e2f1-7de0-4fab-bfc7-c67a6fec2bda",
+  "kf6": "4e2e40f4-4677-4d82-b1e7-edf9f8ac1882"
+ },
+ "drafts": {
+  "clip1-kaal": "bb09defd-2d7b-4a50-94f4-8f284155b8ed",
+  "clip2-stuc": "9683250f-307d-4fae-9aca-18195a2d19df",
+  "clip3-verf": "cf29a6e3-3c47-4de8-94d7-5e8557308bc7",
+  "clip4-afwerking": "7109aaf2-a5a2-4ba0-97df-153db44e0bde",
+  "clip5-thuis": "001512da-40d1-4c83-8075-ce042657cadd"
+ },
+ "masters": {},
+ "keyframe_urls": {
+  "kf1": "https://d8j0ntlcm91z4.cloudfront.net/user_3DVV7Cer2MBLBVMFwP2BdkJfIgk/hf_20260806_093734_71e9c51c-52dd-448b-b110-8b5bbad6d69c.png",
+  "kf2": "https://d8j0ntlcm91z4.cloudfront.net/user_3DVV7Cer2MBLBVMFwP2BdkJfIgk/hf_20260806_094033_0415ee28-7a13-4e1f-9c05-eb9c135ce1b6.png",
+  "kf3": "https://d8j0ntlcm91z4.cloudfront.net/user_3DVV7Cer2MBLBVMFwP2BdkJfIgk/hf_20260806_095946_ccf259aa-b844-4c69-a633-b3202c956664.png",
+  "kf4": "https://d8j0ntlcm91z4.cloudfront.net/user_3DVV7Cer2MBLBVMFwP2BdkJfIgk/hf_20260806_100137_6b2e0086-57fb-48cd-a6fc-68d0802ad1b7.png",
+  "kf5": "https://d8j0ntlcm91z4.cloudfront.net/user_3DVV7Cer2MBLBVMFwP2BdkJfIgk/hf_20260806_100535_1d86e2f1-7de0-4fab-bfc7-c67a6fec2bda.png",
+  "kf6": "https://d8j0ntlcm91z4.cloudfront.net/user_3DVV7Cer2MBLBVMFwP2BdkJfIgk/hf_20260806_101258_4e2e40f4-4677-4d82-b1e7-edf9f8ac1882.png"
+ },
+ "draft_urls": {
+  "clip1-kaal": "https://d8j0ntlcm91z4.cloudfront.net/user_3DVV7Cer2MBLBVMFwP2BdkJfIgk/hf_20260806_101654_bb09defd-2d7b-4a50-94f4-8f284155b8ed.mp4",
+  "clip2-stuc": "https://d8j0ntlcm91z4.cloudfront.net/user_3DVV7Cer2MBLBVMFwP2BdkJfIgk/hf_20260806_102558_9683250f-307d-4fae-9aca-18195a2d19df.mp4",
+  "clip3-verf": "https://d8j0ntlcm91z4.cloudfront.net/user_3DVV7Cer2MBLBVMFwP2BdkJfIgk/hf_20260806_102558_cf29a6e3-3c47-4de8-94d7-5e8557308bc7.mp4",
+  "clip4-afwerking": "https://d8j0ntlcm91z4.cloudfront.net/user_3DVV7Cer2MBLBVMFwP2BdkJfIgk/hf_20260806_102558_7109aaf2-a5a2-4ba0-97df-153db44e0bde.mp4",
+  "clip5-thuis": "https://d8j0ntlcm91z4.cloudfront.net/user_3DVV7Cer2MBLBVMFwP2BdkJfIgk/hf_20260806_102622_001512da-40d1-4c83-8075-ce042657cadd.mp4"
+ },
+ "status": "Draft chain complete (5/5, 480p fast). Awaiting user review.",
+ "chaining_note": "Drafts pinned kf(N)->kf(N+1), NOT real-last-frame chaining (no ffmpeg available). Weaker per playbook 2b; junctions unmeasured."
+}

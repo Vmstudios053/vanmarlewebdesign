@@ -1,0 +1,4 @@
+# Film frames are build output, not source. Regenerate with:
+#   python3 tools/make-standin-film.py frames   (geometric stand-in)
+#   bash tools/build-film.sh                    (real Seedance footage)
+frames/

@@ -1,0 +1,59 @@
+{
+  "film": "Van Kaal naar Thuis — Klusbedrijf De Zegen",
+  "vector": "the camera only ever pushes forward, deeper into the house",
+  "shape": { "clips": 5, "seconds_each": 5, "total_seconds": 25, "aspect_ratio": "16:9" },
+  "style_anchor": "Photorealistic interior photograph inside the same Dutch house under renovation, eye-level one-point perspective centered on a doorway, 35mm lens, natural light, fresh muted palette of soft blue-white and warm oak, no people, no hands, no tools in motion, no text, no logos.",
+  "keyframes": [
+    {
+      "id": "kf1",
+      "prompt": "Opening frame: a bare stripped room, raw brick walls with torn patches of old grey plaster, dusty concrete subfloor, cool pale morning light falling from a bare curtainless window on the left, faint dust hanging in the air. Centered ahead, an open doorway with a plain wooden frame leading to a dimmer unfinished space. Cool desaturated grade, quiet and empty."
+    },
+    {
+      "id": "kf2",
+      "prompt": "The camera is halfway through the same plain wooden doorway: the doorframe edges are softly blurred at the left and right borders of the frame. Beyond, filling the view: a room with freshly plastered smooth pale-grey stucco walls, perfectly even and matte, soft diffuse daylight, clean floor covered with protective paper. Far ahead, another identical centered doorway. Same house, same doorframe style, same colour grade as the reference image, slightly cleaner and calmer."
+    },
+    {
+      "id": "kf3",
+      "prompt": "The camera is halfway through the next identical wooden doorway, frame edges softly blurred at the borders. Beyond: a room mid-painting — walls in fresh very light blue-white paint, a crisp horizontal line of low-tack masking tape near the ceiling, a closed paint tin and a resting paint tray tucked against the skirting at the lower edge, brighter clearer daylight than before. Far ahead, another centered doorway. Same house, same doorframe style, same colour grade as the reference image."
+    },
+    {
+      "id": "kf4",
+      "prompt": "The camera is halfway through the next identical wooden doorway, frame edges softly blurred. Beyond: a room nearly finished — one accent wall in delicate subtle light wallpaper with a fine botanical pattern, the other walls soft blue-white, a newly laid warm oak plank floor, golden late-afternoon light angling in. Far ahead, a final centered doorway glowing warmly. Same house, same doorframe style, same colour grade as the reference image."
+    },
+    {
+      "id": "kf5",
+      "prompt": "The camera is halfway through the final wooden doorway, frame edges softly blurred. Beyond: a glimpse of a finished bright living room — warm sunlight streaming through a large window with sheer curtains, soft blue-white walls, the edge of a cream linen sofa, green potted plants, warm oak floor. Same house, same doorframe style, same colour grade as the reference image, warmer and brighter."
+    },
+    {
+      "id": "kf6",
+      "prompt": "Final resting frame, fully inside the finished living room of the same house: calm wide view — soft light blue-white walls with a large clean empty wall area right of center, warm oak plank floor, cream linen sofa on the left with a wool throw, green potted plants, a large window with sheer curtains letting in warm afternoon sunlight. Serene, fresh, lived-in and complete. Same colour grade as the reference image, brightest and warmest frame of the film."
+    }
+  ],
+  "clips": [
+    {
+      "id": "clip1-kaal",
+      "chapter": "KAAL",
+      "prompt": "One slow steady push forward at eye height: the camera advances across the bare stripped room through faint drifting dust, moving toward the open wooden doorway ahead and into its frame, entering the next room where smooth freshly plastered pale-grey stucco walls come into view. Single continuous forward camera move, constant speed, no cuts, no scene changes, identical colour grade throughout."
+    },
+    {
+      "id": "clip2-stuc",
+      "chapter": "STUC",
+      "prompt": "Continuing the same unbroken forward push, the camera glides deeper into the freshly plastered room between smooth pale-grey stucco walls under soft diffuse daylight, approaching the next wooden doorway and moving into it, where fresh light blue-white paint and a crisp masking-tape line appear on the walls of the room beyond. Single continuous forward camera move, constant speed, no cuts, identical colour grade throughout."
+    },
+    {
+      "id": "clip3-verf",
+      "chapter": "VERF",
+      "prompt": "Continuing the identical slow advance, the camera pushes deeper into the freshly painted blue-white room as the daylight brightens, moving toward the far wooden doorway and entering it, where the next room comes into view with a delicate botanical wallpaper accent wall and warm oak floorboards in golden afternoon light. Single continuous forward camera move, constant speed, no cuts, identical colour grade throughout."
+    },
+    {
+      "id": "clip4-afwerking",
+      "chapter": "AFWERKING",
+      "prompt": "Continuing the same continuous forward glide, the camera advances through the wallpapered room over the new oak floor as the warm light deepens, approaching the final wooden doorway and pushing into its frame, where a bright finished living room with green plants and sunlit blue-white walls appears ahead. Single continuous forward camera move, constant speed, no cuts, identical colour grade throughout."
+    },
+    {
+      "id": "clip5-thuis",
+      "chapter": "THUIS",
+      "prompt": "Continuing the single unbroken push, the camera enters the finished living room and advances gently toward the sunlit seating area, drifting closer to the cream linen sofa, the green plants and the calm blue-white wall, easing to a rest in the same forward direction on the final calm view of the completed home. Single continuous forward camera move, no cuts, identical colour grade throughout."
+    }
+  ]
+}
